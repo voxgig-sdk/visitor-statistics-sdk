@@ -1,0 +1,22 @@
+# BasicVisitorArrivalFlow
+
+main: kit: flow: BasicVisitorArrivalFlow:
+{
+  entity: "visitor_arrival",
+  kind: "basic",
+  name: "BasicVisitorArrivalFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "visitor_arrival_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicVisitorArrivalFlow"
+}

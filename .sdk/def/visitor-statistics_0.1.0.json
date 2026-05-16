@@ -1,0 +1,327 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Visitor Statistics API",
+    "description": "This API provides access to data regarding visitor arrivals in Hong Kong by country and region of residence. Users can retrieve this data in various formats including JSON, CSV, and XLSX for analysis and reporting purposes.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Statistical Information Dissemination Section (1), Census and Statistics Department",
+      "email": "gen-enquiry@censtatd.gov.hk",
+      "url": "https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001"
+    },
+    "license": {
+      "name": "Hong Kong Open Data License",
+      "url": "https://data.gov.hk/en/terms-and-conditions"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://data.gov.hk/api",
+      "description": "Hong Kong Open Data API Server"
+    }
+  ],
+  "paths": {
+    "/visitor-arrivals": {
+      "get": {
+        "summary": "Get visitor arrivals by nationality/region",
+        "description": "Retrieves visitor statistics showing arrivals to Hong Kong by nationality or region of residence. Data includes Table 650-80001 with monthly updates.",
+        "operationId": "getVisitorArrivals",
+        "tags": [
+          "Visitor Statistics"
+        ],
+        "parameters": [
+          {
+            "name": "format",
+            "in": "query",
+            "description": "The desired response format for the data",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "json",
+                "csv",
+                "xlsx"
+              ],
+              "default": "json"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The language for the response data",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "zh-hant",
+                "zh-hans"
+              ],
+              "default": "en"
+            }
+          },
+          {
+            "name": "start_date",
+            "in": "query",
+            "description": "Start date for filtering data (YYYY-MM format)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}$",
+              "example": "2023-01"
+            }
+          },
+          {
+            "name": "end_date",
+            "in": "query",
+            "description": "End date for filtering data (YYYY-MM format)",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "pattern": "^\\d{4}-\\d{2}$",
+              "example": "2023-12"
+            }
+          },
+          {
+            "name": "region",
+            "in": "query",
+            "description": "Filter by specific nationality or region",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "example": "Mainland China"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with visitor arrival statistics",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VisitorArrivalsResponse"
+                },
+                "examples": {
+                  "success": {
+                    "summary": "Example visitor arrivals data",
+                    "value": {
+                      "metadata": {
+                        "table": "650-80001",
+                        "title": "Visitor arrivals by nationality/region",
+                        "update_frequency": "Monthly",
+                        "last_updated": "2024-01-15",
+                        "data_provider": "Census and Statistics Department"
+                      },
+                      "data": [
+                        {
+                          "year_month": "2023-12",
+                          "region": "Mainland China",
+                          "arrivals": 2500000,
+                          "change_percentage": 15.2
+                        },
+                        {
+                          "year_month": "2023-12",
+                          "region": "Taiwan",
+                          "arrivals": 120000,
+                          "change_percentage": 8.5
+                        }
+                      ],
+                      "total_records": 2
+                    }
+                  }
+                }
+              },
+              "text/csv": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                },
+                "example": "year_month,region,arrivals,change_percentage\n2023-12,Mainland China,2500000,15.2\n2023-12,Taiwan,120000,8.5"
+              },
+              "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": {
+                "schema": {
+                  "type": "string",
+                  "format": "binary"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "code": "INVALID_PARAMETER",
+                    "message": "Invalid date format. Please use YYYY-MM format."
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Data not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "code": "NOT_FOUND",
+                    "message": "No data available for the specified period."
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                },
+                "example": {
+                  "error": {
+                    "code": "INTERNAL_ERROR",
+                    "message": "An unexpected error occurred. Please try again later."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "VisitorArrivalsResponse": {
+        "type": "object",
+        "properties": {
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata"
+          },
+          "data": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VisitorArrivalRecord"
+            }
+          },
+          "total_records": {
+            "type": "integer",
+            "description": "Total number of records returned",
+            "example": 100
+          }
+        }
+      },
+      "Metadata": {
+        "type": "object",
+        "properties": {
+          "table": {
+            "type": "string",
+            "description": "Table identifier",
+            "example": "650-80001"
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the dataset",
+            "example": "Visitor arrivals by nationality/region"
+          },
+          "update_frequency": {
+            "type": "string",
+            "description": "Frequency of data updates",
+            "example": "Monthly"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date",
+            "description": "Date when the data was last updated",
+            "example": "2024-01-15"
+          },
+          "data_provider": {
+            "type": "string",
+            "description": "Organization providing the data",
+            "example": "Census and Statistics Department"
+          },
+          "data_dictionary_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to the data dictionary",
+            "example": "https://www.censtatd.gov.hk/datagovhk/WT_data_dict_en.pdf"
+          }
+        }
+      },
+      "VisitorArrivalRecord": {
+        "type": "object",
+        "properties": {
+          "year_month": {
+            "type": "string",
+            "description": "Year and month of the record in YYYY-MM format",
+            "pattern": "^\\d{4}-\\d{2}$",
+            "example": "2023-12"
+          },
+          "region": {
+            "type": "string",
+            "description": "Nationality or region of residence",
+            "example": "Mainland China"
+          },
+          "arrivals": {
+            "type": "integer",
+            "description": "Number of visitor arrivals",
+            "example": 2500000
+          },
+          "change_percentage": {
+            "type": "number",
+            "format": "float",
+            "description": "Percentage change compared to previous period",
+            "example": 15.2
+          }
+        },
+        "required": [
+          "year_month",
+          "region",
+          "arrivals"
+        ]
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code",
+                "example": "INVALID_PARAMETER"
+              },
+              "message": {
+                "type": "string",
+                "description": "Human-readable error message",
+                "example": "Invalid date format. Please use YYYY-MM format."
+              }
+            },
+            "required": [
+              "code",
+              "message"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Visitor Statistics",
+      "description": "Operations related to Hong Kong visitor arrival statistics"
+    }
+  ],
+  "externalDocs": {
+    "description": "Official dataset documentation and data dictionary",
+    "url": "https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001"
+  }
+}

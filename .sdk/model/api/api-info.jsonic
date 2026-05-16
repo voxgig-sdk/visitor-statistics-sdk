@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        email: "gen-enquiry@censtatd.gov.hk"
+        name: "Statistical Information Dissemination Section (1), Census and Statistics Department"
+        url: "https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001"
+      }
+      description: "This API provides access to data regarding visitor arrivals in Hong Kong by country and region of residence. Users can retrieve this data in various formats including JSON, CSV, and XLSX for analysis and reporting purposes."
+      license: {
+        name: "Hong Kong Open Data License"
+        url: "https://data.gov.hk/en/terms-and-conditions"
+      }
+      servers: [
+        {
+          description: "Hong Kong Open Data API Server"
+          url: "https://data.gov.hk/api"
+        }
+      ]
+      title: "Visitor Statistics API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

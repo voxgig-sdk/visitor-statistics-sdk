@@ -1,0 +1,105 @@
+# Entity: visitor_arrival
+
+main: kit: entity: visitor_arrival: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "arrival"
+      req: true
+      type: "`$INTEGER`"
+    }
+    {
+      name: "change_percentage"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "region"
+      req: true
+      type: "`$STRING`"
+    }
+    {
+      name: "year_month"
+      req: true
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "visitor_arrival"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: "2023-12"
+                kind: "query"
+                name: "end_date"
+                orig: "end_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "json"
+                kind: "query"
+                name: "format"
+                orig: "format"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "en"
+                kind: "query"
+                name: "language"
+                orig: "language"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "Mainland China"
+                kind: "query"
+                name: "region"
+                orig: "region"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "2023-01"
+                kind: "query"
+                name: "start_date"
+                orig: "start_date"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/visitor-arrivals"
+          parts: [
+            "visitor-arrivals"
+          ]
+          select: {
+            exist: [
+              "end_date"
+              "format"
+              "language"
+              "region"
+              "start_date"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

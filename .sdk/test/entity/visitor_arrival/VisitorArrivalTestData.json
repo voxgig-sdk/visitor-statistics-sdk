@@ -1,0 +1,34 @@
+{
+  "existing": {
+    "visitor_arrival": {
+      "VISITOR_ARRIVAL00": {
+        "arrival": "s28",
+        "change_percentage": 41,
+        "region": "s2a",
+        "year_month": "s2b"
+      },
+      "VISITOR_ARRIVAL01": {
+        "arrival": "s50",
+        "change_percentage": 81,
+        "region": "s52",
+        "year_month": "s53"
+      },
+      "VISITOR_ARRIVAL02": {
+        "arrival": "s78",
+        "change_percentage": 121,
+        "region": "s7a",
+        "year_month": "s7b"
+      }
+    }
+  },
+  "new": {
+    "visitor_arrival": {
+      "visitor_arrival_ref01": {
+        "arrival": "sa0",
+        "change_percentage": 161,
+        "region": "sa2",
+        "year_month": "sa3"
+      }
+    }
+  }
+}
