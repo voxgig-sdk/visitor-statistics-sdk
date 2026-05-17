@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/visitor-statistics-sdk/core"
+	"github.com/voxgig-sdk/visitor-statistics-sdk/go/core"
 )
 
 type BaseFeature struct {

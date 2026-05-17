@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/visitor-statistics-sdk/core"
+import "github.com/voxgig-sdk/visitor-statistics-sdk/go/core"
 
 func resultBodyUtil(ctx *core.Context) *core.Result {
 	response := ctx.Response

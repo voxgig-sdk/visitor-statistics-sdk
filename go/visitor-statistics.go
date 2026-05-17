@@ -1,10 +1,10 @@
 package voxgigvisitorstatisticssdk
 
 import (
-	"github.com/voxgig-sdk/visitor-statistics-sdk/core"
-	"github.com/voxgig-sdk/visitor-statistics-sdk/entity"
-	"github.com/voxgig-sdk/visitor-statistics-sdk/feature"
-	_ "github.com/voxgig-sdk/visitor-statistics-sdk/utility"
+	"github.com/voxgig-sdk/visitor-statistics-sdk/go/core"
+	"github.com/voxgig-sdk/visitor-statistics-sdk/go/entity"
+	"github.com/voxgig-sdk/visitor-statistics-sdk/go/feature"
+	_ "github.com/voxgig-sdk/visitor-statistics-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/visitor-statistics-sdk"
-	"github.com/voxgig-sdk/visitor-statistics-sdk/core"
+	sdk "github.com/voxgig-sdk/visitor-statistics-sdk/go"
+	"github.com/voxgig-sdk/visitor-statistics-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/visitor-statistics-sdk/go/utility/struct"
 )
 
 func TestVisitorArrivalEntity(t *testing.T) {

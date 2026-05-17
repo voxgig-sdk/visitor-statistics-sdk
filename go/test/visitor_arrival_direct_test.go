@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/visitor-statistics-sdk"
-	"github.com/voxgig-sdk/visitor-statistics-sdk/core"
+	sdk "github.com/voxgig-sdk/visitor-statistics-sdk/go"
+	"github.com/voxgig-sdk/visitor-statistics-sdk/go/core"
 )
 
 func TestVisitorArrivalDirect(t *testing.T) {
