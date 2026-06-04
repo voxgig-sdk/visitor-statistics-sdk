@@ -62,14 +62,12 @@ def visitor_arrival_direct_setup(mockres)
   env = Runner.env_override({
     "VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID" => {},
     "VISITORSTATISTICS_TEST_LIVE" => "FALSE",
-    "VISITORSTATISTICS_APIKEY" => "NONE",
   })
 
   live = env["VISITORSTATISTICS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["VISITORSTATISTICS_APIKEY"],
     }
     client = VisitorStatisticsSDK.new(merged_opts)
     return {

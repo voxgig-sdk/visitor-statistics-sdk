@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID': {},
     'VISITORSTATISTICS_TEST_LIVE': 'FALSE',
-    'VISITORSTATISTICS_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.VISITORSTATISTICS_TEST_LIVE
 
   if (live) {
     const client = new VisitorStatisticsSDK({
-      apikey: env.VISITORSTATISTICS_APIKEY,
     })
 
     let idmap: any = env['VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID']

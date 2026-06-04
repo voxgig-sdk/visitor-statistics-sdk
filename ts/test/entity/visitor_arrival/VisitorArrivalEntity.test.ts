@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'VISITOR_STATISTICS_TEST_VISITOR_ARRIVAL_ENTID': idmap,
     'VISITOR_STATISTICS_TEST_LIVE': 'FALSE',
     'VISITOR_STATISTICS_TEST_EXPLAIN': 'FALSE',
-    'VISITOR_STATISTICS_APIKEY': 'NONE',
   })
 
   idmap = env['VISITOR_STATISTICS_TEST_VISITOR_ARRIVAL_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new VisitorStatisticsSDK(merge([
       {
-        apikey: env.VISITOR_STATISTICS_APIKEY,
       },
       extra
     ]))
