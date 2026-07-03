@@ -1,45 +1,13 @@
 {
-  "name": "visitor-statistics",
-  "origin": "voxgig-sdk",
   "def": "visitor-statistics_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
-      "info": {
-        "contact": {
-          "email": "gen-enquiry@censtatd.gov.hk",
-          "name": "Statistical Information Dissemination Section (1), Census and Statistics Department",
-          "url": "https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001"
-        },
-        "description": "This API provides access to data regarding visitor arrivals in Hong Kong by country and region of residence. Users can retrieve this data in various formats including JSON, CSV, and XLSX for analysis and reporting purposes.",
-        "license": {
-          "name": "Hong Kong Open Data License",
-          "url": "https://data.gov.hk/en/terms-and-conditions"
-        },
-        "servers": [
-          {
-            "description": "Hong Kong Open Data API Server",
-            "url": "https://data.gov.hk/api"
-          }
-        ],
-        "title": "Visitor Statistics API",
-        "version": "1.0.0",
-        "tagline": "Hong Kong visitor arrival counts broken down by country/region of residence",
-        "homepage": "https://data.gov.hk/",
-        "docs_url": "https://www.censtatd.gov.hk/en/web_table.html?id=650-80001",
-        "license_short": "Hong Kong Open Data Licence (Census and Statistics Department)",
-        "license_md": "- Published under the Hong Kong Open Data Licence via data.gov.hk.\n- Source: Census and Statistics Department (C&SD) of the HKSAR Government.\n- Attribution to the originating department is expected when republishing.\n- Confirm terms on the dataset page before redistribution.",
-        "about_md": "This SDK wraps a public statistics feed from the [Hong Kong Census and Statistics Department](https://www.censtatd.gov.hk/) (C&SD), surfaced via [data.gov.hk](https://data.gov.hk/). It exposes Table `650-80001` — visitor arrivals to Hong Kong broken down by the visitor's country or region of residence.\n\nWhat you can pull from the API:\n- Visitor arrival counts to Hong Kong, time-series\n- Breakdowns by country / region of residence\n- Available in JSON, CSV, XML, SDMX, and XLSX representations\n- Language toggle (e.g. `lang=en`) and `full_series=1` for the entire history\n\nThe underlying endpoint is hosted by C&SD at `https://www.censtatd.gov.hk/api/get.php`, parameterised by the table `id`. CORS is not enabled, so browser-side calls typically need a proxy; server-side calls work without authentication.",
-        "entity_desc": {
-          "visitor_arrival": "Time-series records of visitor arrivals to Hong Kong by country/region of residence, sourced from C&SD table `650-80001` (e.g. `GET /get.php?id=650-80001&lang=en&full_series=1`)."
-        },
-        "auth": false
-      },
       "config": {
         "auth": {
           "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
         },
         "docs_order": [
           "ts",
@@ -48,91 +16,97 @@
           "go",
           "rb",
           "lua"
-        ]
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
       },
       "entity": {
         "visitor_arrival": {
+          "active": true,
           "alias": {
             "field": {}
           },
           "fields": [
             {
+              "active": true,
               "name": "arrival",
               "req": true,
-              "type": "`$INTEGER`",
-              "active": true
+              "type": "`$INTEGER`"
             },
             {
+              "active": true,
               "name": "change_percentage",
               "req": false,
-              "type": "`$NUMBER`",
-              "active": true
+              "type": "`$NUMBER`"
             },
             {
+              "active": true,
               "name": "region",
               "req": true,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "year_month",
               "req": true,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             }
           ],
           "name": "visitor_arrival",
           "op": {
             "list": {
+              "input": "data",
               "name": "list",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "query": [
                       {
+                        "active": true,
                         "example": "2023-12",
                         "kind": "query",
                         "name": "end_date",
                         "orig": "end_date",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": "json",
                         "kind": "query",
                         "name": "format",
                         "orig": "format",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": "en",
                         "kind": "query",
                         "name": "language",
                         "orig": "language",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": "Mainland China",
                         "kind": "query",
                         "name": "region",
                         "orig": "region",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": "2023-01",
                         "kind": "query",
                         "name": "start_date",
                         "orig": "start_date",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       }
                     ]
                   },
@@ -153,14 +127,11 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
           "relations": {
             "ancestors": []
           }
@@ -168,9 +139,6 @@
       },
       "feature": {
         "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
           "active": true,
           "config": {
             "options": {
@@ -178,6 +146,14 @@
             }
           },
           "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
             "PostConstruct": {
               "active": true,
               "await": false
@@ -186,25 +162,11 @@
               "active": true,
               "await": false
             },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
+            "PostOperation": {
+              "active": false,
               "await": false
             },
             "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
               "active": true,
               "await": false
             },
@@ -220,20 +182,32 @@
               "active": true,
               "await": false
             },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
             "PreTarget": {
               "active": false,
               "await": false
             },
-            "PostOperation": {
-              "active": false,
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
               "await": false
             }
           },
+          "name": "test",
           "target": {
-            "ts": {
+            "go": {
               "deps": {}
             },
-            "go": {
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
               "deps": {}
             },
             "lua": {
@@ -248,23 +222,30 @@
             "rb": {
               "deps": {}
             },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
+            "ts": {
               "deps": {}
             }
-          }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
         }
       },
       "flow": {
         "BasicVisitorArrivalFlow": {
+          "active": true,
           "entity": "visitor_arrival",
+          "key$": "BasicVisitorArrivalFlow",
           "kind": "basic",
           "name": "BasicVisitorArrivalFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
               "op": "list",
+              "spec": [],
               "valid": [
                 {
                   "apply": "ItemExists",
@@ -272,29 +253,58 @@
                     "ref": "visitor_arrival_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicVisitorArrivalFlow",
-          "active": true,
-          "param": {}
+          ]
         }
       },
+      "info": {
+        "contact": {
+          "email": "gen-enquiry@censtatd.gov.hk",
+          "name": "Statistical Information Dissemination Section (1), Census and Statistics Department",
+          "url": "https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001"
+        },
+        "description": "This API provides access to data regarding visitor arrivals in Hong Kong by country and region of residence. Users can retrieve this data in various formats including JSON, CSV, and XLSX for analysis and reporting purposes.",
+        "license": {
+          "name": "Hong Kong Open Data License",
+          "url": "https://data.gov.hk/en/terms-and-conditions"
+        },
+        "servers": [
+          {
+            "description": "Hong Kong Open Data API Server",
+            "url": "https://data.gov.hk/api"
+          }
+        ],
+        "title": "Visitor Statistics API",
+        "version": "1.0.0"
+      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "visitor-statistics"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "visitor-statistics"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -309,19 +319,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "visitor-statistics"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -336,138 +346,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "visitor-statistics"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "visitor-statistics"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "visitor-statistics"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "visitor-statistics"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "visitor-statistics"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "visitor-statistics"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "visitor-statistics"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "visitor-statistics"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "visitor-statistics"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "visitor-statistics",
+  "origin": "voxgig-sdk"
 }

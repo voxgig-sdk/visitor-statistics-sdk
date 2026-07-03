@@ -93,12 +93,14 @@ func visitor_arrivalDirectSetup(mockres any) *visitor_arrivalDirectSetupResult {
 	env := envOverride(map[string]any{
 		"VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID": map[string]any{},
 		"VISITORSTATISTICS_TEST_LIVE":    "FALSE",
+		"VISITORSTATISTICS_APIKEY":       "NONE",
 	})
 
 	live := env["VISITORSTATISTICS_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["VISITORSTATISTICS_APIKEY"],
 		}
 		client := sdk.NewVisitorStatisticsSDK(mergedOpts)
 

@@ -22,27 +22,7 @@ main: {
       ]
       title: "Visitor Statistics API"
       version: "1.0.0"
-      tagline: "Hong Kong visitor arrival counts broken down by country/region of residence"
-      homepage: "https://data.gov.hk/"
-      docs_url: "https://www.censtatd.gov.hk/en/web_table.html?id=650-80001"
-      license_short: "Hong Kong Open Data Licence (Census and Statistics Department)"
-      license_md: `- Published under the Hong Kong Open Data Licence via data.gov.hk.
-- Source: Census and Statistics Department (C&SD) of the HKSAR Government.
-- Attribution to the originating department is expected when republishing.
-- Confirm terms on the dataset page before redistribution.`
-      about_md: `This SDK wraps a public statistics feed from the [Hong Kong Census and Statistics Department](https://www.censtatd.gov.hk/) (C&SD), surfaced via [data.gov.hk](https://data.gov.hk/). It exposes Table \`650-80001\` — visitor arrivals to Hong Kong broken down by the visitor's country or region of residence.
-
-What you can pull from the API:
-- Visitor arrival counts to Hong Kong, time-series
-- Breakdowns by country / region of residence
-- Available in JSON, CSV, XML, SDMX, and XLSX representations
-- Language toggle (e.g. \`lang=en\`) and \`full_series=1\` for the entire history
-
-The underlying endpoint is hosted by C&SD at \`https://www.censtatd.gov.hk/api/get.php\`, parameterised by the table \`id\`. CORS is not enabled, so browser-side calls typically need a proxy; server-side calls work without authentication.`
-      entity_desc: {
-        visitor_arrival: "Time-series records of visitor arrivals to Hong Kong by country/region of residence, sourced from C&SD table `650-80001` (e.g. `GET /get.php?id=650-80001&lang=en&full_series=1`)."
-      }
-      auth: false
     }
   }
 }
+

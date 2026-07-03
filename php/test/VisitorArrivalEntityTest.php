@@ -86,6 +86,7 @@ function visitor_arrival_basic_setup($extra)
         "VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID" => $idmap,
         "VISITORSTATISTICS_TEST_LIVE" => "FALSE",
         "VISITORSTATISTICS_TEST_EXPLAIN" => "FALSE",
+        "VISITORSTATISTICS_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function visitor_arrival_basic_setup($extra)
     if ($env["VISITORSTATISTICS_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["VISITORSTATISTICS_APIKEY"],
             ],
             $extra ?? [],
         ]);

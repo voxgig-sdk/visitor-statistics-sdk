@@ -1,20 +1,8 @@
 # VisitorStatistics SDK
 
-Hong Kong visitor arrival counts broken down by country/region of residence
+Visitor Statistics API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Visitor Statistics API
-
-This SDK wraps a public statistics feed from the [Hong Kong Census and Statistics Department](https://www.censtatd.gov.hk/) (C&SD), surfaced via [data.gov.hk](https://data.gov.hk/). It exposes Table `650-80001` — visitor arrivals to Hong Kong broken down by the visitor's country or region of residence.
-
-What you can pull from the API:
-- Visitor arrival counts to Hong Kong, time-series
-- Breakdowns by country / region of residence
-- Available in JSON, CSV, XML, SDMX, and XLSX representations
-- Language toggle (e.g. `lang=en`) and `full_series=1` for the entire history
-
-The underlying endpoint is hosted by C&SD at `https://www.censtatd.gov.hk/api/get.php`, parameterised by the table `id`. CORS is not enabled, so browser-side calls typically need a proxy; server-side calls work without authentication.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install visitor-statistics-sdk
 luarocks install visitor-statistics-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { VisitorStatisticsSDK } from 'visitor-statistics'
 
-const client = new VisitorStatisticsSDK({})
+const client = new VisitorStatisticsSDK({
+  apikey: process.env.VISITOR-STATISTICS_APIKEY,
+})
 
 // List all visitorarrivals
 const visitorarrivals = await client.VisitorArrival().list()
+console.log(visitorarrivals.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **VisitorArrival** | Time-series records of visitor arrivals to Hong Kong by country/region of residence, sourced from C&SD table `650-80001` (e.g. `GET /get.php?id=650-80001&lang=en&full_series=1`). | `/visitor-arrivals` |
+| **VisitorArrival** |  | `/visitor-arrivals` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -110,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from visitorstatistics_sdk import VisitorStatisticsSDK
 
-client = VisitorStatisticsSDK({})
+client = VisitorStatisticsSDK({
+    "apikey": os.environ.get("VISITOR-STATISTICS_APIKEY"),
+})
 
 # List all visitorarrivals
-visitorarrivals, err = client.VisitorArrival(None).list(None, None)
+visitorarrivals, err = client.VisitorArrival().list()
+print(visitorarrivals)
 ```
 
 ### PHP
@@ -124,10 +118,13 @@ visitorarrivals, err = client.VisitorArrival(None).list(None, None)
 <?php
 require_once 'visitorstatistics_sdk.php';
 
-$client = new VisitorStatisticsSDK([]);
+$client = new VisitorStatisticsSDK([
+    "apikey" => getenv("VISITOR-STATISTICS_APIKEY"),
+]);
 
 // List all visitorarrivals
-[$visitorarrivals, $err] = $client->VisitorArrival(null)->list(null, null);
+[$visitorarrivals, $err] = $client->VisitorArrival()->list();
+print_r($visitorarrivals);
 ```
 
 ### Golang
@@ -135,10 +132,13 @@ $client = new VisitorStatisticsSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/visitor-statistics-sdk/go"
 
-client := sdk.NewVisitorStatisticsSDK(map[string]any{})
+client := sdk.NewVisitorStatisticsSDK(map[string]any{
+    "apikey": os.Getenv("VISITOR-STATISTICS_APIKEY"),
+})
 
 // List all visitorarrivals
 visitorarrivals, err := client.VisitorArrival(nil).List(nil, nil)
+fmt.Println(visitorarrivals)
 ```
 
 ### Ruby
@@ -146,10 +146,13 @@ visitorarrivals, err := client.VisitorArrival(nil).List(nil, nil)
 ```ruby
 require_relative "VisitorStatistics_sdk"
 
-client = VisitorStatisticsSDK.new({})
+client = VisitorStatisticsSDK.new({
+  "apikey" => ENV["VISITOR-STATISTICS_APIKEY"],
+})
 
 # List all visitorarrivals
-visitorarrivals, err = client.VisitorArrival(nil).list(nil, nil)
+visitorarrivals, err = client.VisitorArrival().list
+puts visitorarrivals
 ```
 
 ### Lua
@@ -157,10 +160,13 @@ visitorarrivals, err = client.VisitorArrival(nil).list(nil, nil)
 ```lua
 local sdk = require("visitor-statistics_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("VISITOR-STATISTICS_APIKEY"),
+})
 
 -- List all visitorarrivals
-local visitorarrivals, err = client:VisitorArrival(nil):list(nil, nil)
+local visitorarrivals, err = client:VisitorArrival():list()
+print(visitorarrivals)
 ```
 
 ## Unit testing in offline mode
@@ -179,25 +185,21 @@ const result = await client.VisitorArrival().load({ id: 'test01' })
 ### Python
 
 ```python
-client = VisitorStatisticsSDK.test(None, None)
-result, err = client.VisitorArrival(None).load(
-    {"id": "test01"}, None
-)
+client = VisitorStatisticsSDK.test()
+result, err = client.VisitorArrival().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = VisitorStatisticsSDK::test(null, null);
-[$result, $err] = $client->VisitorArrival(null)->load(
-    ["id" => "test01"], null
-);
+$client = VisitorStatisticsSDK::test();
+[$result, $err] = $client->VisitorArrival()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.VisitorArrival(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -206,19 +208,15 @@ result, err := client.VisitorArrival(nil).Load(
 ### Ruby
 
 ```ruby
-client = VisitorStatisticsSDK.test(nil, nil)
-result, err = client.VisitorArrival(nil).load(
-  { "id" => "test01" }, nil
-)
+client = VisitorStatisticsSDK.test
+result, err = client.VisitorArrival().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:VisitorArrival(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:VisitorArrival():load({ id = "test01" })
 ```
 
 ## How it works
@@ -322,16 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Visitor Statistics API
-
-- Upstream: [https://data.gov.hk/](https://data.gov.hk/)
-- API docs: [https://www.censtatd.gov.hk/en/web_table.html?id=650-80001](https://www.censtatd.gov.hk/en/web_table.html?id=650-80001)
-
-- Published under the Hong Kong Open Data Licence via data.gov.hk.
-- Source: Census and Statistics Department (C&SD) of the HKSAR Government.
-- Attribution to the originating department is expected when republishing.
-- Confirm terms on the dataset page before redistribution.
 
 ---
 

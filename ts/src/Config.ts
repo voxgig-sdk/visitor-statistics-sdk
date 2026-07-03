@@ -38,6 +38,10 @@ class Config {
   options = {
     base: 'https://data.gov.hk/api',
 
+    auth: {
+      prefix: 'Bearer',
+    },
+
     headers: {
       "content-type": "application/json"
     },
@@ -55,86 +59,88 @@ class Config {
     "visitor_arrival": {
       "fields": [
         {
+          "active": true,
           "name": "arrival",
           "req": true,
           "type": "`$INTEGER`",
-          "active": true,
           "index$": 0
         },
         {
+          "active": true,
           "name": "change_percentage",
           "req": false,
           "type": "`$NUMBER`",
-          "active": true,
           "index$": 1
         },
         {
+          "active": true,
           "name": "region",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 2
         },
         {
+          "active": true,
           "name": "year_month",
           "req": true,
           "type": "`$STRING`",
-          "active": true,
           "index$": 3
         }
       ],
       "name": "visitor_arrival",
       "op": {
         "list": {
+          "input": "data",
           "name": "list",
           "points": [
             {
+              "active": true,
               "args": {
                 "query": [
                   {
+                    "active": true,
                     "example": "2023-12",
                     "kind": "query",
                     "name": "end_date",
                     "orig": "end_date",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "json",
                     "kind": "query",
                     "name": "format",
                     "orig": "format",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "en",
                     "kind": "query",
                     "name": "language",
                     "orig": "language",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "Mainland China",
                     "kind": "query",
                     "name": "region",
                     "orig": "region",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   },
                   {
+                    "active": true,
                     "example": "2023-01",
                     "kind": "query",
                     "name": "start_date",
                     "orig": "start_date",
                     "reqd": false,
-                    "type": "`$STRING`",
-                    "active": true
+                    "type": "`$STRING`"
                   }
                 ]
               },
@@ -156,11 +162,9 @@ class Config {
                 "req": "`reqdata`",
                 "res": "`body`"
               },
-              "active": true,
               "index$": 0
             }
           ],
-          "input": "data",
           "key$": "list"
         }
       },
