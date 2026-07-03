@@ -10,7 +10,7 @@ The Python SDK for the VisitorStatistics API — an entity-oriented client follo
 
 ## Install
 ```bash
-pip install visitor-statistics-sdk
+pip install voxgig-sdk-visitor-statistics
 ```
 
 Or install from source:

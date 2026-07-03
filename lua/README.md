@@ -10,7 +10,7 @@ The Lua SDK for the VisitorStatistics API — an entity-oriented client using Lu
 
 ## Install
 ```bash
-luarocks install visitor-statistics-sdk
+luarocks install voxgig-sdk-visitor-statistics
 ```
 
 If the module is not yet published, add the source directory to

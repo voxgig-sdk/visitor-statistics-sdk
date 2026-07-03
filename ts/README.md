@@ -10,7 +10,7 @@ The TypeScript SDK for the VisitorStatistics API — a type-safe, entity-oriente
 
 ## Install
 ```bash
-npm install visitor-statistics
+npm install @voxgig-sdk/visitor-statistics
 ```
 ## Tutorial: your first API call
 

@@ -10,13 +10,13 @@ The Ruby SDK for the VisitorStatistics API — an entity-oriented client using i
 
 ## Install
 ```bash
-gem install visitor-statistics-sdk
+gem install voxgig-sdk-visitor-statistics
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "visitor-statistics-sdk"
+gem "voxgig-sdk-visitor-statistics"
 ```
 
 Then run:

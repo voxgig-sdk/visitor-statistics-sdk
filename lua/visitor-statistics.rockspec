@@ -8,12 +8,14 @@ source = {
   dir = "visitor-statistics-sdk/lua"
 }
 description = {
-  summary = "VisitorStatistics SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Visitor Statistics public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/visitor-statistics-sdk",
+  issues_url = "https://github.com/voxgig-sdk/visitor-statistics-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "visitor-statistics" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

@@ -10,7 +10,7 @@ The PHP SDK for the VisitorStatistics API — an entity-oriented client using PH
 
 ## Install
 ```bash
-composer require voxgig/visitor-statistics-sdk
+composer require voxgig-sdk/visitor-statistics
 ```
 
 
