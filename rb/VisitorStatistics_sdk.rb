@@ -208,13 +208,7 @@ class VisitorStatisticsSDK
   end
 
 
-  # Idiomatic facade: client.visitor_arrival.list / client.visitor_arrival.load({ "id" => ... })
-  def visitor_arrival
-    require_relative 'entity/visitor_arrival_entity'
-    @visitor_arrival ||= VisitorArrivalEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.visitor_arrival instead.
+  # Canonical facade: client.VisitorArrival.list / client.VisitorArrival.load({ "id" => ... })
   def VisitorArrival(data = nil)
     require_relative 'entity/visitor_arrival_entity'
     VisitorArrivalEntity.new(self, data)

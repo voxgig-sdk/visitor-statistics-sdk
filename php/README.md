@@ -29,18 +29,16 @@ require_once 'visitorstatistics_sdk.php';
 $client = new VisitorStatisticsSDK();
 ```
 
-### 2. List visitorarrivals
+### 2. List visitorarrival records
 
 ```php
 try {
-    $result = $client->visitorarrival()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of VisitorArrival records — iterate directly.
+    $visitorarrivals = $client->VisitorArrival()->list();
+    foreach ($visitorarrivals as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = VisitorStatisticsSDK::test();
+$client = VisitorStatisticsSDK::test([
+    "entity" => ["visitorarrival" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->visitorarrival()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$visitorarrival = $client->VisitorArrival()->load(["id" => "test01"]);
+print_r($visitorarrival);
 ```
 
 ### Use a custom fetch function
@@ -231,7 +233,7 @@ API path: `/visitor-arrivals`
 
 ### VisitorArrival
 
-Create an instance: `const visitor_arrival = client.visitor_arrival`
+Create an instance: `$visitor_arrival = $client->VisitorArrival();`
 
 #### Operations
 
@@ -250,8 +252,9 @@ Create an instance: `const visitor_arrival = client.visitor_arrival`
 
 #### Example: List
 
-```ts
-const visitor_arrivals = await client.visitor_arrival.list()
+```php
+// list() returns an array of VisitorArrival records (throws on error).
+$visitor_arrivals = $client->VisitorArrival()->list();
 ```
 
 
@@ -326,7 +329,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$visitorarrival = $client->visitorarrival();
+$visitorarrival = $client->VisitorArrival();
 $visitorarrival->load(["id" => "example_id"]);
 
 // $visitorarrival->dataGet() now returns the loaded visitorarrival data

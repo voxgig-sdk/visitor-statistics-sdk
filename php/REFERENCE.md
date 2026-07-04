@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## VisitorArrivalEntity
 
 ```php
-$visitor_arrival = $client->visitor_arrival();
+$visitor_arrival = $client->VisitorArrival();
 ```
 
 ### Fields
@@ -104,7 +104,7 @@ $visitor_arrival = $client->visitor_arrival();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->visitor_arrival()->list([]);
+$results = $client->VisitorArrival()->list([]);
 ```
 
 ### Common Methods

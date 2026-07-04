@@ -220,25 +220,15 @@ class VisitorStatisticsSDK:
         }
 
 
-    @property
-    def visitor_arrival(self):
-        """Idiomatic facade: client.visitor_arrival.list() / client.visitor_arrival.load({"id": ...})."""
-        from entity.visitor_arrival_entity import VisitorArrivalEntity
-        cached = getattr(self, "_visitor_arrival", None)
-        if cached is None:
-            cached = VisitorArrivalEntity(self, None)
-            self._visitor_arrival = cached
-        return cached
-
-    def VisitorArrival(self, data=None):
-        # Deprecated: use client.visitor_arrival instead.
+    def VisitorArrival(self, data=None) -> "VisitorArrivalEntity":
+        """Entity factory: client.VisitorArrival().list({}) / client.VisitorArrival().load({"id": ...})."""
         from entity.visitor_arrival_entity import VisitorArrivalEntity
         return VisitorArrivalEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "VisitorStatisticsSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class VisitorStatisticsSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.visitor_arrival_entity import VisitorArrivalEntity

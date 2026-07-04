@@ -109,7 +109,7 @@ Alias for `VisitorStatisticsSDK.test()`.
 ## VisitorArrivalEntity
 
 ```ts
-const visitor_arrival = client.visitor_arrival
+const visitor_arrival = client.VisitorArrival()
 ```
 
 ### Fields
@@ -128,7 +128,7 @@ const visitor_arrival = client.visitor_arrival
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.visitor_arrival.list()
+const results = await client.VisitorArrival().list()
 ```
 
 ### Common Methods

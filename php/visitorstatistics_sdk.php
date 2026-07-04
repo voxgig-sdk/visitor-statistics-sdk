@@ -233,10 +233,10 @@ class VisitorStatisticsSDK
 
     private $_visitor_arrival = null;
 
-    // Idiomatic facade: $client->visitor_arrival()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias VisitorArrival() (PHP method
-    // names are case-insensitive).
-    public function visitor_arrival($data = null)
+    // Canonical facade: $client->VisitorArrival()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->visitor_arrival()
+    // resolves here too.
+    public function VisitorArrival($data = null)
     {
         require_once __DIR__ . '/entity/visitor_arrival_entity.php';
         if ($data === null) {

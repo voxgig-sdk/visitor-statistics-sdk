@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:visitor_arrival():list() / client:visitor_arrival():load({ id = ... })
-function VisitorStatisticsSDK:visitor_arrival(data)
+-- Idiomatic facade: client:VisitorArrival():list() / client:VisitorArrival():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function VisitorStatisticsSDK:VisitorArrival(data)
   local EntityMod = require("entity.visitor_arrival_entity")
   if data == nil then
     if self._visitor_arrival == nil then
@@ -253,12 +254,6 @@ function VisitorStatisticsSDK:visitor_arrival(data)
     end
     return self._visitor_arrival
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:visitor_arrival() instead.
-function VisitorStatisticsSDK:VisitorArrival(data)
-  local EntityMod = require("entity.visitor_arrival_entity")
   return EntityMod.new(self, data)
 end
 

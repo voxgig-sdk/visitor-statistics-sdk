@@ -204,14 +204,7 @@ class VisitorStatisticsSDK {
 
 
 
-  _visitor_arrival?: VisitorArrivalEntity
-
-  // Idiomatic facade: `client.visitor_arrival.list()` / `client.visitor_arrival.load({ id })`.
-  get visitor_arrival(): VisitorArrivalEntity {
-    return (this._visitor_arrival ??= new VisitorArrivalEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.visitor_arrival` instead. */
+  // Entity access: `client.VisitorArrival().list()` / `client.VisitorArrival().load({ id })`.
   VisitorArrival(data?: any) {
     const self = this
     return new VisitorArrivalEntity(self,data)

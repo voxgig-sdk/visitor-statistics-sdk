@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## VisitorArrivalEntity
 
 ```lua
-local visitor_arrival = client:visitor_arrival(nil)
+local visitor_arrival = client:VisitorArrival(nil)
 ```
 
 ### Fields
@@ -102,7 +102,7 @@ local visitor_arrival = client:visitor_arrival(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:visitor_arrival():list()
+local results, err = client:VisitorArrival():list()
 ```
 
 ### Common Methods

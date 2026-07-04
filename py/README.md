@@ -31,14 +31,16 @@ from visitorstatistics_sdk import VisitorStatisticsSDK
 client = VisitorStatisticsSDK()
 ```
 
-### 2. List visitorarrivals
+### 2. List visitorarrival records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.visitorarrival.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    visitorarrivals = client.VisitorArrival().list({})
+    for visitorarrival in visitorarrivals:
+        print(visitorarrival)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = VisitorStatisticsSDK.test()
 
-result = client.visitorarrival.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+visitorarrival = client.VisitorArrival().load({"id": "test01"})
+# visitorarrival contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -223,7 +226,7 @@ API path: `/visitor-arrivals`
 
 ### VisitorArrival
 
-Create an instance: `const visitor_arrival = client.visitor_arrival`
+Create an instance: `visitor_arrival = client.VisitorArrival()`
 
 #### Operations
 
@@ -242,8 +245,8 @@ Create an instance: `const visitor_arrival = client.visitor_arrival`
 
 #### Example: List
 
-```ts
-const visitor_arrivals = await client.visitor_arrival.list()
+```python
+visitor_arrivals = client.VisitorArrival().list({})
 ```
 
 
@@ -317,7 +320,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-visitorarrival = client.visitorarrival
+visitorarrival = client.VisitorArrival()
 visitorarrival.load({"id": "example_id"})
 
 # visitorarrival.data_get() now returns the loaded visitorarrival data

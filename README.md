@@ -26,9 +26,11 @@ import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics'
 
 const client = new VisitorStatisticsSDK()
 
-// List all visitorarrivals
-const visitorarrivals = await client.visitorarrival.list()
-console.log(visitorarrivals.data)
+// List all visitorarrivals (returns VisitorArrival[])
+const visitorarrivals = await client.VisitorArrival().list()
+for (const visitorarrival of visitorarrivals) {
+  console.log(visitorarrival)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from visitorstatistics_sdk import VisitorStatisticsSDK
 
 client = VisitorStatisticsSDK()
 
-# List all visitorarrivals
-visitorarrivals = client.visitorarrival.list()
-print(visitorarrivals)
+# List all visitorarrivals (returns a list, raises on error)
+visitorarrivals = client.VisitorArrival().list({})
+for visitorarrival in visitorarrivals:
+    print(visitorarrival)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'visitorstatistics_sdk.php';
 
 $client = new VisitorStatisticsSDK();
 
-// List all visitorarrivals (throws on error)
-$visitorarrivals = $client->visitorarrival()->list();
+// List all visitorarrivals (returns an array; throws on error)
+$visitorarrivals = $client->VisitorArrival()->list();
 print_r($visitorarrivals);
 ```
 
@@ -120,8 +123,8 @@ require_relative "VisitorStatistics_sdk"
 
 client = VisitorStatisticsSDK.new
 
-# List all visitorarrivals
-visitorarrivals = client.visitorarrival.list
+# List all visitorarrivals (returns an Array; raises on error)
+visitorarrivals = client.VisitorArrival.list
 puts visitorarrivals
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("visitor-statistics_sdk")
 local client = sdk.new()
 
 -- List all visitorarrivals
-local visitorarrivals, err = client:visitorarrival():list()
+local visitorarrivals, err = client:VisitorArrival():list()
 print(visitorarrivals)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = VisitorStatisticsSDK.test()
-const result = await client.visitorarrival.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const visitorarrival = await client.VisitorArrival().load({ id: 'test01' })
+// visitorarrival is a bare VisitorArrival populated with mock data
+console.log(visitorarrival)
 ```
 
 ### Python
 
 ```python
 client = VisitorStatisticsSDK.test()
-result = client.visitorarrival.load({"id": "test01"})
+visitorarrival = client.VisitorArrival().load({"id": "test01"})
+print(visitorarrival)
 ```
 
 ### PHP
 
 ```php
-$client = VisitorStatisticsSDK::test();
-$result = $client->visitorarrival()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = VisitorStatisticsSDK::test([
+    "entity" => ["visitorarrival" => ["test01" => ["id" => "test01"]]],
+]);
+$visitorarrival = $client->VisitorArrival()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.VisitorArrival(nil).Load(
 ### Ruby
 
 ```ruby
-client = VisitorStatisticsSDK.test
-result = client.visitorarrival.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = VisitorStatisticsSDK.test({
+  "entity" => { "visitorarrival" => { "test01" => { "id" => "test01" } } },
+})
+visitorarrival = client.VisitorArrival.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:visitorarrival():load({ id = "test01" })
+local result, err = client:VisitorArrival():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

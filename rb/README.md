@@ -28,16 +28,14 @@ require_relative "VisitorStatistics_sdk"
 client = VisitorStatisticsSDK.new
 ```
 
-### 2. List visitorarrivals
+### 2. List visitorarrival records
 
 ```ruby
 begin
-  result = client.visitorarrival.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of VisitorArrival records — iterate directly.
+  visitorarrivals = client.VisitorArrival.list
+  visitorarrivals.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = VisitorStatisticsSDK.test
+client = VisitorStatisticsSDK.test({
+  "entity" => { "visitorarrival" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.visitorarrival.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+visitorarrival = client.VisitorArrival.load({ "id" => "test01" })
+puts visitorarrival
 ```
 
 ### Use a custom fetch function
@@ -226,7 +228,7 @@ API path: `/visitor-arrivals`
 
 ### VisitorArrival
 
-Create an instance: `const visitor_arrival = client.visitor_arrival`
+Create an instance: `visitor_arrival = client.VisitorArrival`
 
 #### Operations
 
@@ -245,8 +247,9 @@ Create an instance: `const visitor_arrival = client.visitor_arrival`
 
 #### Example: List
 
-```ts
-const visitor_arrivals = await client.visitor_arrival.list()
+```ruby
+# list returns an Array of VisitorArrival records (raises on error).
+visitor_arrivals = client.VisitorArrival.list
 ```
 
 
@@ -321,7 +324,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-visitorarrival = client.visitorarrival
+visitorarrival = client.VisitorArrival
 visitorarrival.load({ "id" => "example_id" })
 
 # visitorarrival.data_get now returns the loaded visitorarrival data

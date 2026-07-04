@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## VisitorArrivalEntity
 
 ```python
-visitor_arrival = client.visitor_arrival
+visitor_arrival = client.VisitorArrival()
 ```
 
 ### Fields
@@ -99,7 +99,9 @@ visitor_arrival = client.visitor_arrival
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.visitor_arrival.list({})
+results = client.VisitorArrival().list({})
+for visitor_arrival in results:
+    print(visitor_arrival)
 ```
 
 ### Common Methods
