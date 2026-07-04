@@ -245,6 +245,9 @@ func (sdk *VisitorStatisticsSDK) Direct(fetchargs map[string]any) (map[string]an
 }
 
 
+// VisitorArrival returns a VisitorArrival entity bound to this client.
+// Idiomatic usage: client.VisitorArrival(nil).List(nil, nil) or
+// client.VisitorArrival(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *VisitorStatisticsSDK) VisitorArrival(data map[string]any) VisitorStatisticsEntity {
 	return NewVisitorArrivalEntityFunc(sdk, data)
 }

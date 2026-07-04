@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch VisitorArrivalListMatch
+---@param ctrl? table
+---@return VisitorArrival[]
+---@return string? err
 function VisitorArrivalEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

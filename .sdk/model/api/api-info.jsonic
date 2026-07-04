@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         email: "gen-enquiry@censtatd.gov.hk"
         name: "Statistical Information Dissemination Section (1), Census and Statistics Department"

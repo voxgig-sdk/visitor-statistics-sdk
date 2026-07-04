@@ -43,8 +43,7 @@ class VisitorArrivalEntityTest < Minitest::Test
     visitor_arrival_ref01_ent = client.VisitorArrival(nil)
     visitor_arrival_ref01_match = {}
 
-    visitor_arrival_ref01_list_result, err = visitor_arrival_ref01_ent.list(visitor_arrival_ref01_match, nil)
-    assert_nil err
+    visitor_arrival_ref01_list_result = visitor_arrival_ref01_ent.list(visitor_arrival_ref01_match, nil)
     assert visitor_arrival_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def visitor_arrival_basic_setup(extra)
     "VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID" => idmap,
     "VISITORSTATISTICS_TEST_LIVE" => "FALSE",
     "VISITORSTATISTICS_TEST_EXPLAIN" => "FALSE",
-    "VISITORSTATISTICS_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def visitor_arrival_basic_setup(extra)
   if env["VISITORSTATISTICS_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["VISITORSTATISTICS_APIKEY"],
       },
       extra || {},
     ])

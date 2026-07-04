@@ -50,8 +50,7 @@ class TestVisitorArrivalEntity:
         visitor_arrival_ref01_ent = client.VisitorArrival(None)
         visitor_arrival_ref01_match = {}
 
-        visitor_arrival_ref01_list_result, err = visitor_arrival_ref01_ent.list(visitor_arrival_ref01_match, None)
-        assert err is None
+        visitor_arrival_ref01_list_result = visitor_arrival_ref01_ent.list(visitor_arrival_ref01_match, None)
         assert isinstance(visitor_arrival_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _visitor_arrival_basic_setup(extra):
         "VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID": idmap,
         "VISITORSTATISTICS_TEST_LIVE": "FALSE",
         "VISITORSTATISTICS_TEST_EXPLAIN": "FALSE",
-        "VISITORSTATISTICS_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _visitor_arrival_basic_setup(extra):
     if env.get("VISITORSTATISTICS_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("VISITORSTATISTICS_APIKEY"),
             },
             extra or {},
         ])

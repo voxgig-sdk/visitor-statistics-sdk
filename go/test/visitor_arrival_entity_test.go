@@ -119,7 +119,6 @@ func visitor_arrivalBasicSetup(extra map[string]any) *entityTestSetup {
 		"VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID": idmap,
 		"VISITORSTATISTICS_TEST_LIVE":      "FALSE",
 		"VISITORSTATISTICS_TEST_EXPLAIN":   "FALSE",
-		"VISITORSTATISTICS_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID"])
@@ -130,7 +129,6 @@ func visitor_arrivalBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["VISITORSTATISTICS_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
-				"apikey": env["VISITORSTATISTICS_APIKEY"],
 			},
 			extra,
 		})
