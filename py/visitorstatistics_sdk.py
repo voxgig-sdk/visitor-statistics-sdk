@@ -221,7 +221,7 @@ class VisitorStatisticsSDK:
 
 
     def VisitorArrival(self, data=None) -> "VisitorArrivalEntity":
-        """Entity factory: client.VisitorArrival().list({}) / client.VisitorArrival().load({"id": ...})."""
+        """Entity factory: client.VisitorArrival().list() / client.VisitorArrival().load({"id": ...})."""
         from entity.visitor_arrival_entity import VisitorArrivalEntity
         return VisitorArrivalEntity(self, data)
 

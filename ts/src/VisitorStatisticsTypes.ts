@@ -12,5 +12,10 @@ export interface VisitorArrival {
   year_month: string
 }
 
-export type VisitorArrivalListMatch = Partial<VisitorArrival>
+export interface VisitorArrivalListMatch {
+  arrival?: number
+  change_percentage?: number
+  region?: string
+  year_month?: string
+}
 

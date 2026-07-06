@@ -90,10 +90,10 @@ local visitor_arrival = client:VisitorArrival(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | ``$INTEGER`` | Yes |  |
-| `change_percentage` | ``$NUMBER`` | No |  |
-| `region` | ``$STRING`` | Yes |  |
-| `year_month` | ``$STRING`` | Yes |  |
+| `arrival` | `number` | Yes |  |
+| `change_percentage` | `number` | No |  |
+| `region` | `string` | Yes |  |
+| `year_month` | `string` | Yes |  |
 
 ### Operations
 

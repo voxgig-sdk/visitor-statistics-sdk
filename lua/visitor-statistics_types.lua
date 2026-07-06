@@ -13,6 +13,10 @@
 ---@field year_month string
 
 ---@class VisitorArrivalListMatch
+---@field arrival? number
+---@field change_percentage? number
+---@field region? string
+---@field year_month? string
 
 local M = {}
 

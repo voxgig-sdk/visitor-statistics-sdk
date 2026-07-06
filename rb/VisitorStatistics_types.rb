@@ -29,7 +29,7 @@ VisitorArrival = Struct.new(
   keyword_init: true
 )
 
-# Match filter for VisitorArrival#list (any subset of VisitorArrival fields).
+# Request payload for VisitorArrival#list.
 #
 # @!attribute [rw] arrival
 #   @return [Integer, nil]

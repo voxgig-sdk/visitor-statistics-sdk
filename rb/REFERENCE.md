@@ -8,7 +8,7 @@ Complete API reference for the VisitorStatistics Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'visitor-statistics_sdk'
+require_relative 'VisitorStatistics_sdk'
 
 client = VisitorStatisticsSDK.new(options)
 ```
@@ -93,19 +93,19 @@ visitor_arrival = client.VisitorArrival
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | ``$INTEGER`` | Yes |  |
-| `change_percentage` | ``$NUMBER`` | No |  |
-| `region` | ``$STRING`` | Yes |  |
-| `year_month` | ``$STRING`` | Yes |  |
+| `arrival` | `Integer` | Yes |  |
+| `change_percentage` | `Float` | No |  |
+| `region` | `String` | Yes |  |
+| `year_month` | `String` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.VisitorArrival.list(nil)
+results = client.VisitorArrival.list
 ```
 
 ### Common Methods

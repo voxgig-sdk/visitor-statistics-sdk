@@ -21,7 +21,7 @@ class VisitorArrival
     public string $year_month;
 }
 
-/** Match filter for VisitorArrival#list (any subset of VisitorArrival fields). */
+/** Request payload for VisitorArrival#list. */
 class VisitorArrivalListMatch
 {
     public ?int $arrival = null;

@@ -8,7 +8,7 @@ Complete API reference for the VisitorStatistics Python SDK.
 ### Constructor
 
 ```python
-from visitor-statistics_sdk import VisitorStatisticsSDK
+from visitorstatistics_sdk import VisitorStatisticsSDK
 
 client = VisitorStatisticsSDK(options)
 ```
@@ -87,19 +87,19 @@ visitor_arrival = client.VisitorArrival()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | ``$INTEGER`` | Yes |  |
-| `change_percentage` | ``$NUMBER`` | No |  |
-| `region` | ``$STRING`` | Yes |  |
-| `year_month` | ``$STRING`` | Yes |  |
+| `arrival` | `int` | Yes |  |
+| `change_percentage` | `float` | No |  |
+| `region` | `str` | Yes |  |
+| `year_month` | `str` | Yes |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.VisitorArrival().list({})
+results = client.VisitorArrival().list()
 for visitor_arrival in results:
     print(visitor_arrival)
 ```

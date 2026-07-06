@@ -8,7 +8,7 @@ Complete API reference for the VisitorStatistics PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/visitor-statistics_sdk.php';
+require_once __DIR__ . '/visitorstatistics_sdk.php';
 
 $client = new VisitorStatisticsSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = VisitorStatisticsSDK::test();
 
 Create a new `VisitorArrivalEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): VisitorStatisticsUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,36 +92,36 @@ $visitor_arrival = $client->VisitorArrival();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | ``$INTEGER`` | Yes |  |
-| `change_percentage` | ``$NUMBER`` | No |  |
-| `region` | ``$STRING`` | Yes |  |
-| `year_month` | ``$STRING`` | Yes |  |
+| `arrival` | `int` | Yes |  |
+| `change_percentage` | `float` | No |  |
+| `region` | `string` | Yes |  |
+| `year_month` | `string` | Yes |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->VisitorArrival()->list([]);
+$results = $client->VisitorArrival()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -130,7 +130,7 @@ Set the entity match criteria.
 Create a new `VisitorArrivalEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

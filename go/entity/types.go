@@ -16,8 +16,7 @@ type VisitorArrival struct {
 	YearMonth string `json:"year_month"`
 }
 
-// VisitorArrivalListMatch mirrors the visitor_arrival fields as an all-optional match
-// filter (Go analog of Partial<VisitorArrival>).
+// VisitorArrivalListMatch is the typed request payload for VisitorArrival.ListTyped.
 type VisitorArrivalListMatch struct {
 	Arrival *int `json:"arrival,omitempty"`
 	ChangePercentage *float64 `json:"change_percentage,omitempty"`
