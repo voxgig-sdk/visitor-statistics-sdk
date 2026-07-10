@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List visitorarrival records — the value is the array of records itself.
-    visitorarrivals, err := client.VisitorArrival(nil).List(nil, nil)
+    // List visitorArrival records — the value is the array of records itself.
+    visitorArrivals, err := client.VisitorArrival(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range visitorarrivals.([]any) {
+    for _, item := range visitorArrivals.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-visitorarrival, err := client.VisitorArrival(nil).List(
+visitorArrival, err := client.VisitorArrival(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(visitorarrival) // the returned mock data
+fmt.Println(visitorArrival) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -247,9 +247,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    visitorarrival, err := client.VisitorArrival(nil).List(map[string]any{/* fields */}, nil)
+    visitorArrival, err := client.VisitorArrival(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // visitorarrival is the returned record
+    // visitorArrival is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -276,7 +276,7 @@ API path: `/visitor-arrivals`
 
 ### VisitorArrival
 
-Create an instance: `visitor_arrival := client.VisitorArrival(nil)`
+Create an instance: `visitorArrival := client.VisitorArrival(nil)`
 
 #### Operations
 
@@ -296,11 +296,11 @@ Create an instance: `visitor_arrival := client.VisitorArrival(nil)`
 #### Example: List
 
 ```go
-visitor_arrivals, err := client.VisitorArrival(nil).List(nil, nil)
+visitorArrivals, err := client.VisitorArrival(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(visitor_arrivals) // the array of records
+fmt.Println(visitorArrivals) // the array of records
 ```
 
 

@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## VisitorArrivalEntity
 
 ```go
-visitor_arrival := client.VisitorArrival(nil)
+visitorArrival := client.VisitorArrival(nil)
+fmt.Println(visitorArrival.GetName()) // "visitor_arrival"
 ```
 
 ### Fields
@@ -110,6 +111,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.VisitorArrival(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

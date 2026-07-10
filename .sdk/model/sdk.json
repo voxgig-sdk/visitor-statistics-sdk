@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -270,14 +267,17 @@
           "name": "Hong Kong Open Data License",
           "url": "https://data.gov.hk/en/terms-and-conditions"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Hong Kong Open Data API Server",
             "url": "https://data.gov.hk/api"
           }
         ],
+        "summary": "This API provides access to data regarding visitor arrivals in Hong Kong by country and region of residence.",
         "title": "Visitor Statistics API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001"
       },
       "option": {},
       "target": {
@@ -330,6 +330,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -380,6 +383,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

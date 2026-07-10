@@ -21,9 +21,9 @@ main: {
           url: "https://data.gov.hk/api"
         }
       ]
+      summary: "This API provides access to data regarding visitor arrivals in Hong Kong by country and region of residence."
       title: "Visitor Statistics API"
       version: "1.0.0"
+      website: "https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001"
     }
   }
-}
-
