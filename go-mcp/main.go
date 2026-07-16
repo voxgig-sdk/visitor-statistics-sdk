@@ -37,7 +37,20 @@ func main() {
 	addr := flag.String("addr", ":8080", "listen address for http transport")
 	flag.Parse()
 
-	client := sdk.NewVisitorStatisticsSDK(nil)
+	// Configure from the environment: VISITOR_STATISTICS_APIKEY carries the API key and
+	// VISITOR_STATISTICS_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("VISITOR_STATISTICS_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("VISITOR_STATISTICS_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewVisitorStatisticsSDK(opts)
 	server := mcp.NewServer(
 		&mcp.Implementation{
 			Name:    "visitor-statistics",
