@@ -32,7 +32,7 @@ class VisitorStatisticsConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'arrival',
+              'name' => 'arrivals',
               'req' => true,
               'type' => '`$INTEGER`',
               'index$' => 0,
@@ -116,6 +116,7 @@ class VisitorStatisticsConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/visitor-arrivals',
                   'parts' => [

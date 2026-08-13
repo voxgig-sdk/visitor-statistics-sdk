@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ VisitorStatisticsUtility::setRegistrar(function (VisitorStatisticsUtility $u): v
     $u->prepare_params = [VisitorStatisticsPrepareParams::class, 'call'];
     $u->prepare_path = [VisitorStatisticsPreparePath::class, 'call'];
     $u->prepare_query = [VisitorStatisticsPrepareQuery::class, 'call'];
+    $u->graphql_body = [VisitorStatisticsGraphql::class, 'body'];
+    $u->graphql_errors = [VisitorStatisticsGraphql::class, 'errors'];
     $u->result_basic = [VisitorStatisticsResultBasic::class, 'call'];
     $u->result_body = [VisitorStatisticsResultBody::class, 'call'];
     $u->result_headers = [VisitorStatisticsResultHeaders::class, 'call'];

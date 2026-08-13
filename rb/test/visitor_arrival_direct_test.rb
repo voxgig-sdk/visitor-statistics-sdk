@@ -60,11 +60,11 @@ def visitor_arrival_direct_setup(mockres)
   calls = []
 
   env = Runner.env_override({
-    "VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID" => {},
-    "VISITORSTATISTICS_TEST_LIVE" => "FALSE",
+    "VISITOR_STATISTICS_TEST_VISITOR_ARRIVAL_ENTID" => {},
+    "VISITOR_STATISTICS_TEST_LIVE" => "FALSE",
   })
 
-  live = env["VISITORSTATISTICS_TEST_LIVE"] == "TRUE"
+  live = env["VISITOR_STATISTICS_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {

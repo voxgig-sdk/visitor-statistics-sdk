@@ -23,8 +23,8 @@ module VisitorStatisticsTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("VISITORSTATISTICS_TEST_LIVE")
-    override = getenv("VISITORSTATISTICS_TEST_OVERRIDE")
+    live = getenv("VISITOR_STATISTICS_TEST_LIVE")
+    override = getenv("VISITOR_STATISTICS_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module VisitorStatisticsTestRunner
       end
     end
 
-    explain = getenv("VISITORSTATISTICS_TEST_EXPLAIN")
-    m["VISITORSTATISTICS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("VISITOR_STATISTICS_TEST_EXPLAIN")
+    m["VISITOR_STATISTICS_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end

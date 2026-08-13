@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import VisitorStatisticsControl
-from core.error import VisitorStatisticsError
-from core.result import VisitorStatisticsResult
-from core.spec import VisitorStatisticsSpec
+from projectname_sdk.config import make_config
+from projectname_sdk.features import _make_feature
+from projectname_sdk.core.control import VisitorStatisticsControl
+from projectname_sdk.core.error import VisitorStatisticsError
+from projectname_sdk.core.result import VisitorStatisticsResult
+from projectname_sdk.core.spec import VisitorStatisticsSpec
 
 
 # True when this SDK was generated with the named feature.

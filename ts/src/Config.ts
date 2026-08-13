@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'VisitorStatistics',
   }
 
 
@@ -56,7 +56,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "arrival",
+          "name": "arrivals",
           "req": true,
           "type": "`$INTEGER`",
           "index$": 0
@@ -140,6 +140,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/visitor-arrivals",
               "parts": [

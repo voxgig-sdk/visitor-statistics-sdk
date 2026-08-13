@@ -37,7 +37,7 @@ class VisitorArrivalEntity extends VisitorStatisticsEntityBase<VisitorArrival> {
 
 
 
-  async list(this: any, reqmatch?: VisitorArrivalListMatch, ctrl?: Control): Promise<VisitorArrival[]> {
+  async list(this: any, reqmatch?: VisitorArrivalListMatch, ctrl?: Control): Promise<VisitorArrivalEntity[]> {
 
     const utility = this._utility
 

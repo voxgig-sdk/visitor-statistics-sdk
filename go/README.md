@@ -260,7 +260,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"arrival"` |  |
+| `"arrivals"` |  |
 | `"change_percentage"` |  |
 | `"region"` |  |
 | `"year_month"` |  |
@@ -288,7 +288,7 @@ Create an instance: `visitorArrival := client.VisitorArrival(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrival` | `int` |  |
+| `arrivals` | `int` |  |
 | `change_percentage` | `float64` |  |
 | `region` | `string` |  |
 | `year_month` | `string` |  |

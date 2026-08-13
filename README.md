@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = VisitorStatisticsSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = VisitorStatisticsSDK.test({
+  entity: {
+    visitor_arrival: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const visitorarrivals = await client.VisitorArrival().list()
-// visitorarrivals is an array of bare VisitorArrival records populated with mock data
+// visitorarrivals is an array of VisitorArrival entities, populated with mock data
+// — call visitorarrivals[0].data() for the record itself
 console.log(visitorarrivals)
 ```
 
@@ -110,7 +119,7 @@ import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics'
 
 const client = new VisitorStatisticsSDK()
 
-// List all visitorarrivals (returns VisitorArrival[])
+// List all visitorarrivals (returns VisitorArrivalEntity[] — .data() for the record)
 const visitorarrivals = await client.VisitorArrival().list()
 for (const visitorarrival of visitorarrivals) {
   console.log(visitorarrival)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001](https://data.gov.hk/en-data/dataset/hk-censtatd-tablechart-650-80001)
 

@@ -6,14 +6,14 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface VisitorArrival {
-  arrival: number
+  arrivals: number
   change_percentage?: number
   region: string
   year_month: string
 }
 
 export interface VisitorArrivalListMatch {
-  arrival?: number
+  arrivals?: number
   change_percentage?: number
   region?: string
   year_month?: string

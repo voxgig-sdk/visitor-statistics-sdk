@@ -35,7 +35,9 @@ const client = new VisitorStatisticsSDK()
 
 ### 2. List visitorarrival records
 
-`list()` resolves to an array of VisitorArrival objects — iterate it directly:
+`list()` resolves to an array of VisitorArrival ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const visitorarrivals = await client.VisitorArrival().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = VisitorStatisticsSDK.test()
 
 const visitorarrival = await client.VisitorArrival().list()
-// visitorarrival is a bare entity populated with mock response data
+// visitorarrival is the entity, populated with mock response data
+// — call visitorarrival.data() for the record itself
 console.log(visitorarrival)
 ```
 
@@ -284,7 +287,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `arrival` |  |
+| `arrivals` |  |
 | `change_percentage` |  |
 | `region` |  |
 | `year_month` |  |
@@ -312,7 +315,7 @@ Create an instance: `const visitor_arrival = client.VisitorArrival()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrival` | `number` |  |
+| `arrivals` | `number` |  |
 | `change_percentage` | `number` |  |
 | `region` | `string` |  |
 | `year_month` | `string` |  |

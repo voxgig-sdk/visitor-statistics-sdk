@@ -6,7 +6,7 @@ main: kit: entity: visitor_arrival: {
 
   fields: [
     {
-      name: "arrival"
+      name: "arrivals"
       req: true
       type: "`$INTEGER`"
     }

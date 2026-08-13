@@ -7,13 +7,13 @@
 -- edit by hand.
 
 ---@class VisitorArrival
----@field arrival number
+---@field arrivals number
 ---@field change_percentage? number
 ---@field region string
 ---@field year_month string
 
 ---@class VisitorArrivalListMatch
----@field arrival? number
+---@field arrivals? number
 ---@field change_percentage? number
 ---@field region? string
 ---@field year_month? string

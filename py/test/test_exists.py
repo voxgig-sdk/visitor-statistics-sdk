@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# VisitorStatistics SDK exists test
 
 import pytest
 from visitorstatistics_sdk import VisitorStatisticsSDK

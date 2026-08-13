@@ -92,7 +92,7 @@ $visitor_arrival = $client->VisitorArrival();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | `int` | Yes |  |
+| `arrivals` | `int` | Yes |  |
 | `change_percentage` | `float` | No |  |
 | `region` | `string` | Yes |  |
 | `year_month` | `string` | Yes |  |

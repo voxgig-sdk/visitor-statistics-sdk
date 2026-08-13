@@ -19,11 +19,15 @@ import {
 describe('VisitorArrivalDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when VISITORSTATISTICS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('VISITORSTATISTICS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when VISITOR_STATISTICS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('VISITOR_STATISTICS_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new VisitorStatisticsSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID': {},
-    'VISITORSTATISTICS_TEST_LIVE': 'FALSE',
+    'VISITOR_STATISTICS_TEST_VISITOR_ARRIVAL_ENTID': {},
+    'VISITOR_STATISTICS_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.VISITORSTATISTICS_TEST_LIVE
+  const live = 'TRUE' === env.VISITOR_STATISTICS_TEST_LIVE
 
   if (live) {
     const client = new VisitorStatisticsSDK({
     })
 
-    let idmap: any = env['VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID']
+    let idmap: any = env['VISITOR_STATISTICS_TEST_VISITOR_ARRIVAL_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

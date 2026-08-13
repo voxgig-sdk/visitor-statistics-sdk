@@ -10,7 +10,7 @@
 
 # VisitorArrival entity data model.
 #
-# @!attribute [rw] arrival
+# @!attribute [rw] arrivals
 #   @return [Integer]
 #
 # @!attribute [rw] change_percentage
@@ -22,7 +22,7 @@
 # @!attribute [rw] year_month
 #   @return [String]
 VisitorArrival = Struct.new(
-  :arrival,
+  :arrivals,
   :change_percentage,
   :region,
   :year_month,
@@ -31,7 +31,7 @@ VisitorArrival = Struct.new(
 
 # Request payload for VisitorArrival#list.
 #
-# @!attribute [rw] arrival
+# @!attribute [rw] arrivals
 #   @return [Integer, nil]
 #
 # @!attribute [rw] change_percentage
@@ -43,7 +43,7 @@ VisitorArrival = Struct.new(
 # @!attribute [rw] year_month
 #   @return [String, nil]
 VisitorArrivalListMatch = Struct.new(
-  :arrival,
+  :arrivals,
   :change_percentage,
   :region,
   :year_month,

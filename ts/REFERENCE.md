@@ -116,7 +116,7 @@ const visitor_arrival = client.VisitorArrival()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | `number` | Yes |  |
+| `arrivals` | `number` | Yes |  |
 | `change_percentage` | `number` | No |  |
 | `region` | `string` | Yes |  |
 | `year_month` | `string` | Yes |  |

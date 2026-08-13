@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from visitorstatistics_sdk.utility.voxgig_struct import voxgig_struct as vs
 from visitorstatistics_sdk import VisitorStatisticsSDK
-from core import helpers
+from visitorstatistics_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _visitor_arrival_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "VISITORSTATISTICS_TEST_VISITOR_ARRIVAL_ENTID": {},
-        "VISITORSTATISTICS_TEST_LIVE": "FALSE",
+        "VISITOR_STATISTICS_TEST_VISITOR_ARRIVAL_ENTID": {},
+        "VISITOR_STATISTICS_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("VISITORSTATISTICS_TEST_LIVE") == "TRUE"
+    live = env.get("VISITOR_STATISTICS_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

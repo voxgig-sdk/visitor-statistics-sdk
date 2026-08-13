@@ -26,8 +26,8 @@ import {
 describe('VisitorArrivalEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when VISITORSTATISTICS_TEST_LIVE=TRUE.
-  afterEach(liveDelay('VISITORSTATISTICS_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when VISITOR_STATISTICS_TEST_LIVE=TRUE.
+  afterEach(liveDelay('VISITOR_STATISTICS_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = VisitorStatisticsSDK.test()
@@ -63,7 +63,7 @@ describe('VisitorArrivalEntity', async () => {
     const visitor_arrival_ref01_ent = client.VisitorArrival()
     const visitor_arrival_ref01_match: any = {}
 
-    const visitor_arrival_ref01_list = await visitor_arrival_ref01_ent.list(visitor_arrival_ref01_match)
+    const visitor_arrival_ref01_list = (await visitor_arrival_ref01_ent.list(visitor_arrival_ref01_match)).map((e: any) => e.data())
 
 
   })

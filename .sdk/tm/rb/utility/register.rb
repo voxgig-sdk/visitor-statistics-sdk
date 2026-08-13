@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ VisitorStatisticsUtility.registrar = ->(u) {
   u.prepare_params = VisitorStatisticsUtilities::PrepareParams
   u.prepare_path = VisitorStatisticsUtilities::PreparePath
   u.prepare_query = VisitorStatisticsUtilities::PrepareQuery
+  u.graphql_body = VisitorStatisticsUtilities::GraphqlBody
+  u.graphql_errors = VisitorStatisticsUtilities::GraphqlErrors
   u.result_basic = VisitorStatisticsUtilities::ResultBasic
   u.result_body = VisitorStatisticsUtilities::ResultBody
   u.result_headers = VisitorStatisticsUtilities::ResultHeaders

@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import VisitorStatisticsSDK
-from core.error import VisitorStatisticsError
-from core.result import VisitorStatisticsResult
-from core.response import VisitorStatisticsResponse
-from core.spec import VisitorStatisticsSpec
-from feature.base_feature import VisitorStatisticsBaseFeature
+from projectname_sdk.core.error import VisitorStatisticsError
+from projectname_sdk.core.result import VisitorStatisticsResult
+from projectname_sdk.core.response import VisitorStatisticsResponse
+from projectname_sdk.core.spec import VisitorStatisticsSpec
+from projectname_sdk.feature.base_feature import VisitorStatisticsBaseFeature
 
 
 def _client():

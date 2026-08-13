@@ -15,7 +15,7 @@ declare(strict_types=1);
 /** VisitorArrival entity data model. */
 class VisitorArrival
 {
-    public int $arrival;
+    public int $arrivals;
     public ?float $change_percentage = null;
     public string $region;
     public string $year_month;
@@ -24,7 +24,7 @@ class VisitorArrival
 /** Request payload for VisitorArrival#list. */
 class VisitorArrivalListMatch
 {
-    public ?int $arrival = null;
+    public ?int $arrivals = null;
     public ?float $change_percentage = null;
     public ?string $region = null;
     public ?string $year_month = null;

@@ -98,7 +98,7 @@ fmt.Println(visitorArrival.GetName()) // "visitor_arrival"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | `int` | Yes |  |
+| `arrivals` | `int` | Yes |  |
 | `change_percentage` | `float64` | No |  |
 | `region` | `string` | Yes |  |
 | `year_month` | `string` | Yes |  |

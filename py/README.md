@@ -124,7 +124,8 @@ Create a mock client for unit testing — no server required:
 ```python
 client = VisitorStatisticsSDK.test()
 
-# Entity ops return the bare record and raise on error.
+# Entity ops return the ENTITY and raises on error;
+# call data_get() for the record.
 visitorarrival = client.VisitorArrival().list()
 # visitorarrival contains the mock response record
 ```
@@ -220,7 +221,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (a `dict` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (a `dict` for single-entity
 ops, a `list` for `list`) and raise on error. Wrap calls in
 `try`/`except` to handle failures.
 
@@ -242,7 +243,7 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `arrival` |  |
+| `arrivals` |  |
 | `change_percentage` |  |
 | `region` |  |
 | `year_month` |  |
@@ -270,7 +271,7 @@ Create an instance: `visitor_arrival = client.VisitorArrival()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrival` | `int` |  |
+| `arrivals` | `int` |  |
 | `change_percentage` | `float` |  |
 | `region` | `str` |  |
 | `year_month` | `str` |  |

@@ -37,7 +37,7 @@ begin
   # list returns an Array of VisitorArrival records — iterate directly.
   visitorarrivals = client.VisitorArrival.list
   visitorarrivals.each do |item|
-    puts "#{item["arrival"]}"
+    puts "#{item["arrivals"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -119,7 +119,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = VisitorStatisticsSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 visitorarrival = client.VisitorArrival.list()
 puts visitorarrival
 ```
@@ -236,7 +237,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `arrival` |  |
+| `arrivals` |  |
 | `change_percentage` |  |
 | `region` |  |
 | `year_month` |  |
@@ -264,7 +265,7 @@ Create an instance: `visitor_arrival = client.VisitorArrival`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrival` | `Integer` |  |
+| `arrivals` | `Integer` |  |
 | `change_percentage` | `Float` |  |
 | `region` | `String` |  |
 | `year_month` | `String` |  |

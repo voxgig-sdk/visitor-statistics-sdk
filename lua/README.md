@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local visitor_arrival, err = client:VisitorArrival():load()
+    local visitor_arrival, err = client:VisitorArrival():list()
     if err then error(err) end
-    -- visitor_arrival is the loaded record
+    -- visitor_arrival is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -231,7 +231,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `arrival` |  |
+| `arrivals` |  |
 | `change_percentage` |  |
 | `region` |  |
 | `year_month` |  |
@@ -259,7 +259,7 @@ Create an instance: `local visitor_arrival = client:VisitorArrival(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrival` | `number` |  |
+| `arrivals` | `number` |  |
 | `change_percentage` | `number` |  |
 | `region` | `string` |  |
 | `year_month` | `string` |  |

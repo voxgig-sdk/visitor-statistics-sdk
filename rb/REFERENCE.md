@@ -93,7 +93,7 @@ visitor_arrival = client.VisitorArrival
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrival` | `Integer` | Yes |  |
+| `arrivals` | `Integer` | Yes |  |
 | `change_percentage` | `Float` | No |  |
 | `region` | `String` | Yes |  |
 | `year_month` | `String` | Yes |  |
