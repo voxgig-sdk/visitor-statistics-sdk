@@ -40,7 +40,7 @@ class VisitorStatisticsSDK
         $utility = new VisitorStatisticsUtility();
         $this->_utility = $utility;
 
-        $config = VisitorStatisticsConfig::make_config();
+        $config = VisitorStatisticsConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

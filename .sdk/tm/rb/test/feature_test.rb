@@ -15,7 +15,7 @@ require_relative "../VisitorStatistics_sdk"
 module VisitorStatisticsFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = VisitorStatisticsConfig.make_config["feature"]
+    f = VisitorStatisticsConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

@@ -33,7 +33,7 @@ class VisitorArrivalEntityTest < Minitest::Test
     assert_equal 3, seen.length
 
     # Inbound: streaming active -> yields each item from the feature.
-    cfg = VisitorStatisticsConfig.make_config
+    cfg = VisitorStatisticsConfig.shared_config
     if cfg["feature"].is_a?(Hash) && cfg["feature"].key?("streaming")
       sdk = VisitorStatisticsSDK.test(seed, { "feature" => { "streaming" => { "active" => true } } })
       got = []

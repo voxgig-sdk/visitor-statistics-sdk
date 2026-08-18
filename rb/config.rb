@@ -1,6 +1,20 @@
 # VisitorStatistics SDK configuration
 
 module VisitorStatisticsConfig
+  # Return the process-wide config, built once on first use. The SDK reads
+  # the config on every request and never writes to it, so one instance is
+  # shared by every client rather than rebuilt per client.
+  #
+  # The returned hash is shared: treat it as read-only. Callers that need to
+  # mutate should use make_config, which always returns a fresh copy.
+  def self.shared_config
+    @shared_config ||= make_config
+  end
+
+
+  # Build a fresh, fully materialised config hash. Every call rebuilds the
+  # whole structure, so prefer shared_config unless you need a private copy
+  # you intend to mutate.
   def self.make_config
     {
       "main" => {
@@ -26,32 +40,23 @@ module VisitorStatisticsConfig
         "visitor_arrival" => {
           "fields" => [
             {
-              "active" => true,
               "name" => "arrivals",
               "req" => true,
               "type" => "`$INTEGER`",
-              "index$" => 0,
             },
             {
-              "active" => true,
               "name" => "change_percentage",
-              "req" => false,
               "type" => "`$NUMBER`",
-              "index$" => 1,
             },
             {
-              "active" => true,
               "name" => "region",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 2,
             },
             {
-              "active" => true,
               "name" => "year_month",
               "req" => true,
               "type" => "`$STRING`",
-              "index$" => 3,
             },
           ],
           "name" => "visitor_arrival",
@@ -61,52 +66,41 @@ module VisitorStatisticsConfig
               "name" => "list",
               "points" => [
                 {
-                  "active" => true,
                   "args" => {
                     "query" => [
                       {
-                        "active" => true,
                         "example" => "2023-12",
                         "kind" => "query",
                         "name" => "end_date",
                         "orig" => "end_date",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "json",
                         "kind" => "query",
                         "name" => "format",
                         "orig" => "format",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "en",
                         "kind" => "query",
                         "name" => "language",
                         "orig" => "language",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "Mainland China",
                         "kind" => "query",
                         "name" => "region",
                         "orig" => "region",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                       {
-                        "active" => true,
                         "example" => "2023-01",
                         "kind" => "query",
                         "name" => "start_date",
                         "orig" => "start_date",
-                        "reqd" => false,
                         "type" => "`$STRING`",
                       },
                     ],
@@ -130,10 +124,8 @@ module VisitorStatisticsConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "index$" => 0,
                 },
               ],
-              "key$" => "list",
             },
           },
           "relations" => {

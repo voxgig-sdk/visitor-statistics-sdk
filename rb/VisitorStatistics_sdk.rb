@@ -28,7 +28,7 @@ class VisitorStatisticsSDK
     utility = VisitorStatisticsUtility.new
     @_utility = utility
 
-    config = VisitorStatisticsConfig.make_config
+    config = VisitorStatisticsConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
