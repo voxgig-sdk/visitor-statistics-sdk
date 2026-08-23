@@ -36,24 +36,28 @@
               "active": true,
               "name": "arrivals",
               "req": true,
+              "short": "Number of visitor arrivals",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "change_percentage",
               "req": false,
+              "short": "Percentage change compared to previous period",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "region",
               "req": true,
+              "short": "Nationality or region of residence",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "year_month",
               "req": true,
+              "short": "Year and month of the record in YYYY-MM format",
               "type": "`$STRING`"
             }
           ],

@@ -243,10 +243,10 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `arrivals` |  |
-| `change_percentage` |  |
-| `region` |  |
-| `year_month` |  |
+| `arrivals` | Number of visitor arrivals |
+| `change_percentage` | Percentage change compared to previous period |
+| `region` | Nationality or region of residence |
+| `year_month` | Year and month of the record in YYYY-MM format |
 
 Operations: List.
 
@@ -271,10 +271,10 @@ Create an instance: `visitor_arrival = client.VisitorArrival()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrivals` | `int` |  |
-| `change_percentage` | `float` |  |
-| `region` | `str` |  |
-| `year_month` | `str` |  |
+| `arrivals` | `int` | Number of visitor arrivals |
+| `change_percentage` | `float` | Percentage change compared to previous period |
+| `region` | `str` | Nationality or region of residence |
+| `year_month` | `str` | Year and month of the record in YYYY-MM format |
 
 #### Example: List
 

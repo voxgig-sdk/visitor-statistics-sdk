@@ -231,10 +231,10 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `arrivals` |  |
-| `change_percentage` |  |
-| `region` |  |
-| `year_month` |  |
+| `arrivals` | Number of visitor arrivals |
+| `change_percentage` | Percentage change compared to previous period |
+| `region` | Nationality or region of residence |
+| `year_month` | Year and month of the record in YYYY-MM format |
 
 Operations: List.
 
@@ -259,10 +259,10 @@ Create an instance: `local visitor_arrival = client:VisitorArrival(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrivals` | `number` |  |
-| `change_percentage` | `number` |  |
-| `region` | `string` |  |
-| `year_month` | `string` |  |
+| `arrivals` | `number` | Number of visitor arrivals |
+| `change_percentage` | `number` | Percentage change compared to previous period |
+| `region` | `string` | Nationality or region of residence |
+| `year_month` | `string` | Year and month of the record in YYYY-MM format |
 
 #### Example: List
 

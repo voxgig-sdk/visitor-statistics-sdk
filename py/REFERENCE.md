@@ -87,10 +87,10 @@ visitor_arrival = client.VisitorArrival()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrivals` | `int` | Yes |  |
-| `change_percentage` | `float` | No |  |
-| `region` | `str` | Yes |  |
-| `year_month` | `str` | Yes |  |
+| `arrivals` | `int` | Yes | Number of visitor arrivals |
+| `change_percentage` | `float` | No | Percentage change compared to previous period |
+| `region` | `str` | Yes | Nationality or region of residence |
+| `year_month` | `str` | Yes | Year and month of the record in YYYY-MM format |
 
 ### Operations
 

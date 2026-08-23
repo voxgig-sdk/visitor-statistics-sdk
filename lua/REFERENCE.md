@@ -90,10 +90,10 @@ local visitor_arrival = client:VisitorArrival(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrivals` | `number` | Yes |  |
-| `change_percentage` | `number` | No |  |
-| `region` | `string` | Yes |  |
-| `year_month` | `string` | Yes |  |
+| `arrivals` | `number` | Yes | Number of visitor arrivals |
+| `change_percentage` | `number` | No | Percentage change compared to previous period |
+| `region` | `string` | Yes | Nationality or region of residence |
+| `year_month` | `string` | Yes | Year and month of the record in YYYY-MM format |
 
 ### Operations
 

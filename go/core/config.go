@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "VisitorStatistics",
+			"slug": "visitor-statistics",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,20 +37,24 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "arrivals",
 						"req": true,
+						"short": "Number of visitor arrivals",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "change_percentage",
+						"short": "Percentage change compared to previous period",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "region",
 						"req": true,
+						"short": "Nationality or region of residence",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year_month",
 						"req": true,
+						"short": "Year and month of the record in YYYY-MM format",
 						"type": "`$STRING`",
 					},
 				},

@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,10 +287,10 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `arrivals` |  |
-| `change_percentage` |  |
-| `region` |  |
-| `year_month` |  |
+| `arrivals` | Number of visitor arrivals |
+| `change_percentage` | Percentage change compared to previous period |
+| `region` | Nationality or region of residence |
+| `year_month` | Year and month of the record in YYYY-MM format |
 
 Operations: list.
 
@@ -315,10 +315,10 @@ Create an instance: `const visitor_arrival = client.VisitorArrival()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrivals` | `number` |  |
-| `change_percentage` | `number` |  |
-| `region` | `string` |  |
-| `year_month` | `string` |  |
+| `arrivals` | `number` | Number of visitor arrivals |
+| `change_percentage` | `number` | Percentage change compared to previous period |
+| `region` | `string` | Nationality or region of residence |
+| `year_month` | `string` | Year and month of the record in YYYY-MM format |
 
 #### Example: List
 

@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "VisitorStatistics",
+            "slug": "visitor-statistics",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,20 +54,24 @@ def make_config():
           {
             "name": "arrivals",
             "req": True,
+            "short": "Number of visitor arrivals",
             "type": "`$INTEGER`",
           },
           {
             "name": "change_percentage",
+            "short": "Percentage change compared to previous period",
             "type": "`$NUMBER`",
           },
           {
             "name": "region",
             "req": True,
+            "short": "Nationality or region of residence",
             "type": "`$STRING`",
           },
           {
             "name": "year_month",
             "req": True,
+            "short": "Year and month of the record in YYYY-MM format",
             "type": "`$STRING`",
           },
         ],

@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'VisitorStatistics',
+        slug: "visitor-statistics",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -57,20 +68,24 @@ class Config {
         {
           "name": "arrivals",
           "req": true,
+          "short": "Number of visitor arrivals",
           "type": "`$INTEGER`"
         },
         {
           "name": "change_percentage",
+          "short": "Percentage change compared to previous period",
           "type": "`$NUMBER`"
         },
         {
           "name": "region",
           "req": true,
+          "short": "Nationality or region of residence",
           "type": "`$STRING`"
         },
         {
           "name": "year_month",
           "req": true,
+          "short": "Year and month of the record in YYYY-MM format",
           "type": "`$STRING`"
         }
       ],

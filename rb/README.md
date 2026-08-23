@@ -237,10 +237,10 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `arrivals` |  |
-| `change_percentage` |  |
-| `region` |  |
-| `year_month` |  |
+| `arrivals` | Number of visitor arrivals |
+| `change_percentage` | Percentage change compared to previous period |
+| `region` | Nationality or region of residence |
+| `year_month` | Year and month of the record in YYYY-MM format |
 
 Operations: List.
 
@@ -265,10 +265,10 @@ Create an instance: `visitor_arrival = client.VisitorArrival`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrivals` | `Integer` |  |
-| `change_percentage` | `Float` |  |
-| `region` | `String` |  |
-| `year_month` | `String` |  |
+| `arrivals` | `Integer` | Number of visitor arrivals |
+| `change_percentage` | `Float` | Percentage change compared to previous period |
+| `region` | `String` | Nationality or region of residence |
+| `year_month` | `String` | Year and month of the record in YYYY-MM format |
 
 #### Example: List
 

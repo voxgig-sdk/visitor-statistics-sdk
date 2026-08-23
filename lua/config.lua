@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "VisitorStatistics",
+      slug = "visitor-statistics",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -30,20 +33,24 @@ local function make_config()
           {
             ["name"] = "arrivals",
             ["req"] = true,
+            ["short"] = "Number of visitor arrivals",
             ["type"] = "`$INTEGER`",
           },
           {
             ["name"] = "change_percentage",
+            ["short"] = "Percentage change compared to previous period",
             ["type"] = "`$NUMBER`",
           },
           {
             ["name"] = "region",
             ["req"] = true,
+            ["short"] = "Nationality or region of residence",
             ["type"] = "`$STRING`",
           },
           {
             ["name"] = "year_month",
             ["req"] = true,
+            ["short"] = "Year and month of the record in YYYY-MM format",
             ["type"] = "`$STRING`",
           },
         },

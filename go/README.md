@@ -6,7 +6,7 @@ The Golang SDK for the VisitorStatistics API — an entity-oriented client using
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.VisitorArrival(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,10 +260,10 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"arrivals"` |  |
-| `"change_percentage"` |  |
-| `"region"` |  |
-| `"year_month"` |  |
+| `"arrivals"` | Number of visitor arrivals |
+| `"change_percentage"` | Percentage change compared to previous period |
+| `"region"` | Nationality or region of residence |
+| `"year_month"` | Year and month of the record in YYYY-MM format |
 
 Operations: List.
 
@@ -288,10 +288,10 @@ Create an instance: `visitorArrival := client.VisitorArrival(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `arrivals` | `int` |  |
-| `change_percentage` | `float64` |  |
-| `region` | `string` |  |
-| `year_month` | `string` |  |
+| `arrivals` | `int` | Number of visitor arrivals |
+| `change_percentage` | `float64` | Percentage change compared to previous period |
+| `region` | `string` | Nationality or region of residence |
+| `year_month` | `string` | Year and month of the record in YYYY-MM format |
 
 #### Example: List
 

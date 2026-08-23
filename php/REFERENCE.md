@@ -92,10 +92,10 @@ $visitor_arrival = $client->VisitorArrival();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `arrivals` | `int` | Yes |  |
-| `change_percentage` | `float` | No |  |
-| `region` | `string` | Yes |  |
-| `year_month` | `string` | Yes |  |
+| `arrivals` | `int` | Yes | Number of visitor arrivals |
+| `change_percentage` | `float` | No | Percentage change compared to previous period |
+| `region` | `string` | Yes | Nationality or region of residence |
+| `year_month` | `string` | Yes | Year and month of the record in YYYY-MM format |
 
 ### Operations
 
