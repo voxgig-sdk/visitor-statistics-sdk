@@ -42,6 +42,7 @@ class VisitorStatisticsConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
