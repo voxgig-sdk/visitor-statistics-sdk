@@ -24,9 +24,10 @@ class VisitorArrival
 /** Request payload for VisitorArrival#list. */
 class VisitorArrivalListMatch
 {
-    public ?int $arrivals = null;
-    public ?float $change_percentage = null;
+    public ?string $end_date = null;
+    public ?string $format = null;
+    public ?string $language = null;
     public ?string $region = null;
-    public ?string $year_month = null;
+    public ?string $start_date = null;
 }
 

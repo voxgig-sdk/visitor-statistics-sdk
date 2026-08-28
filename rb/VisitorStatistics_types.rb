@@ -31,22 +31,26 @@ VisitorArrival = Struct.new(
 
 # Request payload for VisitorArrival#list.
 #
-# @!attribute [rw] arrivals
-#   @return [Integer, nil]
+# @!attribute [rw] end_date
+#   @return [String, nil]
 #
-# @!attribute [rw] change_percentage
-#   @return [Float, nil]
+# @!attribute [rw] format
+#   @return [String, nil]
+#
+# @!attribute [rw] language
+#   @return [String, nil]
 #
 # @!attribute [rw] region
 #   @return [String, nil]
 #
-# @!attribute [rw] year_month
+# @!attribute [rw] start_date
 #   @return [String, nil]
 VisitorArrivalListMatch = Struct.new(
-  :arrivals,
-  :change_percentage,
+  :end_date,
+  :format,
+  :language,
   :region,
-  :year_month,
+  :start_date,
   keyword_init: true
 )
 

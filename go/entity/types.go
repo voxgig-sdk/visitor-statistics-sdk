@@ -22,10 +22,11 @@ type VisitorArrival struct {
 
 // VisitorArrivalListMatch is the typed request payload for VisitorArrival.ListTyped.
 type VisitorArrivalListMatch struct {
-	Arrivals *int `json:"arrivals,omitempty"`
-	ChangePercentage *float64 `json:"change_percentage,omitempty"`
+	EndDate *string `json:"end_date,omitempty"`
+	Format *string `json:"format,omitempty"`
+	Language *string `json:"language,omitempty"`
 	Region *string `json:"region,omitempty"`
-	YearMonth *string `json:"year_month,omitempty"`
+	StartDate *string `json:"start_date,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

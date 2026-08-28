@@ -13,9 +13,10 @@ export interface VisitorArrival {
 }
 
 export interface VisitorArrivalListMatch {
-  arrivals?: number
-  change_percentage?: number
+  end_date?: string
+  format?: string
+  language?: string
   region?: string
-  year_month?: string
+  start_date?: string
 }
 

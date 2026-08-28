@@ -27,7 +27,8 @@ class VisitorArrival(VisitorArrivalRequired, total=False):
 
 
 class VisitorArrivalListMatch(TypedDict, total=False):
-    arrivals: int
-    change_percentage: float
+    end_date: str
+    format: str
+    language: str
     region: str
-    year_month: str
+    start_date: str
