@@ -12,6 +12,7 @@ main: kit: entity: visitor_arrival: {
       type: "`$INTEGER`"
     }
     {
+      format: "float"
       name: "change_percentage"
       req: false
       short: "Percentage change compared to previous period"
@@ -83,8 +84,10 @@ main: kit: entity: visitor_arrival: {
           }
           method: "GET"
           orig: "/visitor-arrivals"
-          parts: [
-            "visitor-arrivals"
+          segments: [
+            {
+              lit: "visitor-arrivals"
+            }
           ]
           select: {
             exist: [

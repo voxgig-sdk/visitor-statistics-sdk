@@ -64,6 +64,7 @@ class VisitorStatisticsConfig
               'type' => '`$INTEGER`',
             ],
             [
+              'format' => 'float',
               'name' => 'change_percentage',
               'short' => 'Percentage change compared to previous period',
               'type' => '`$NUMBER`',
@@ -130,8 +131,10 @@ class VisitorStatisticsConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/visitor-arrivals',
-                  'parts' => [
-                    'visitor-arrivals',
+                  'segments' => [
+                    [
+                      'lit' => 'visitor-arrivals',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -145,6 +148,9 @@ class VisitorStatisticsConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'visitor-arrivals',
                   ],
                 ],
               ],

@@ -38,6 +38,7 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "float",
             ["name"] = "change_percentage",
             ["short"] = "Percentage change compared to previous period",
             ["type"] = "`$NUMBER`",
@@ -104,8 +105,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/visitor-arrivals",
-                ["parts"] = {
-                  "visitor-arrivals",
+                ["segments"] = {
+                  {
+                    ["lit"] = "visitor-arrivals",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -119,6 +122,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "visitor-arrivals",
                 },
               },
             },
