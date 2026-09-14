@@ -105,7 +105,7 @@ local results, err = client:VisitorArrival():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
+| TypeScript | `@voxgig-sdk/visitor-statistics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
 | Python | `voxgig-sdk-visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
 | PHP | `voxgig-sdk/visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/visitor-statistics-sdk/go` | `go get github.com/voxgig-sdk/visitor-statistics-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:VisitorArrival():list()
 ### TypeScript
 
 ```ts
-import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics'
+import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics-sdk'
 
 const client = new VisitorStatisticsSDK()
 

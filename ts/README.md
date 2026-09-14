@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics'
+import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics-sdk'
 
 const client = new VisitorStatisticsSDK()
 ```
@@ -409,7 +409,7 @@ visitor-statistics/
 Import the SDK from the package root:
 
 ```ts
-import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics'
+import { VisitorStatisticsSDK } from '@voxgig-sdk/visitor-statistics-sdk'
 ```
 
 ### Entity state
