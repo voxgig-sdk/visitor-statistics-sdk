@@ -1,12 +1,18 @@
 # VisitorStatistics SDK feature factory
 
 from visitorstatistics_sdk.feature.base_feature import VisitorStatisticsBaseFeature
+from visitorstatistics_sdk.feature.ratelimit_feature import VisitorStatisticsRatelimitFeature
+from visitorstatistics_sdk.feature.retry_feature import VisitorStatisticsRetryFeature
 from visitorstatistics_sdk.feature.test_feature import VisitorStatisticsTestFeature
+from visitorstatistics_sdk.feature.timeout_feature import VisitorStatisticsTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: VisitorStatisticsBaseFeature(),
+    "ratelimit": lambda: VisitorStatisticsRatelimitFeature(),
+    "retry": lambda: VisitorStatisticsRetryFeature(),
     "test": lambda: VisitorStatisticsTestFeature(),
+    "timeout": lambda: VisitorStatisticsTimeoutFeature(),
 }
 
 

@@ -4,7 +4,10 @@ declare(strict_types=1);
 // VisitorStatistics SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class VisitorStatisticsFeatures
@@ -14,8 +17,14 @@ class VisitorStatisticsFeatures
         switch ($name) {
             case "base":
                 return new VisitorStatisticsBaseFeature();
+            case "ratelimit":
+                return new VisitorStatisticsRatelimitFeature();
+            case "retry":
+                return new VisitorStatisticsRetryFeature();
             case "test":
                 return new VisitorStatisticsTestFeature();
+            case "timeout":
+                return new VisitorStatisticsTimeoutFeature();
             default:
                 return new VisitorStatisticsBaseFeature();
         }
@@ -31,7 +40,10 @@ class VisitorStatisticsFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
