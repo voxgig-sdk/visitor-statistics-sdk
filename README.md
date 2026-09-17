@@ -105,12 +105,12 @@ local results, err = client:VisitorArrival():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/visitor-statistics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
-| Python | `voxgig-sdk-visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
-| PHP | `voxgig-sdk/visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
+| TypeScript | `@voxgig-sdk/visitor-statistics-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/tags) |
+| Python | `voxgig-sdk-visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/tags) |
+| PHP | `voxgig-sdk/visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/visitor-statistics-sdk/go` | `go get github.com/voxgig-sdk/visitor-statistics-sdk/go@latest` |
-| Ruby | `voxgig-sdk-visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
-| Lua | `voxgig-sdk-visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/releases) |
+| Ruby | `voxgig-sdk-visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/tags) |
+| Lua | `voxgig-sdk-visitor-statistics` | publish pending — [install from git tag](https://github.com/voxgig-sdk/visitor-statistics-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/visitor-statistics-sdk/go-cli` | `go install github.com/voxgig-sdk/visitor-statistics-sdk/go-cli/cmd/visitor-statistics@latest` |
 | Go MCP server | `github.com/voxgig-sdk/visitor-statistics-sdk/go-mcp` | `go get github.com/voxgig-sdk/visitor-statistics-sdk/go-mcp@latest` |
 

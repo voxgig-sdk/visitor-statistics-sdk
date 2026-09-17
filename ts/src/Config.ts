@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      visitor_arrival: {
-      },
-
+        visitor_arrival: {
+        },
+  
     }
   }
 
