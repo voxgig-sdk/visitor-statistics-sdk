@@ -1,0 +1,121 @@
+# Entity: visitor_arrival
+
+main: kit: entity: visitor_arrival: {
+
+  alias: field: {}
+
+  fields: {
+    arrivals: {
+      h: "Arrivals"
+      n: "arrivals"
+      r: true
+      sh: "Number of visitor arrivals"
+      t: "`$INTEGER`"
+    }
+    change_percentage: {
+      fo: "float"
+      h: "Change Percentage"
+      n: "change_percentage"
+      r: false
+      sh: "Percentage change compared to previous period"
+      t: "`$NUMBER`"
+    }
+    region: {
+      h: "Region"
+      n: "region"
+      r: true
+      sh: "Nationality or region of residence"
+      t: "`$STRING`"
+    }
+    year_month: {
+      h: "Year Month"
+      n: "year_month"
+      r: true
+      sh: "Year and month of the record in YYYY-MM format"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "visitor_arrival"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /visitor-arrivals"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: "2023-12"
+                k: "query"
+                n: "end_date"
+                or: "end_date"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "json"
+                k: "query"
+                n: "format"
+                or: "format"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "en"
+                k: "query"
+                n: "language"
+                or: "language"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "Mainland China"
+                k: "query"
+                n: "region"
+                or: "region"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "2023-01"
+                k: "query"
+                n: "start_date"
+                or: "start_date"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/visitor-arrivals"
+          q: {
+            exist: [
+              "end_date"
+              "format"
+              "language"
+              "region"
+              "start_date"
+            ]
+          }
+          s: [
+            {
+              lit: "visitor-arrivals"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

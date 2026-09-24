@@ -19,7 +19,6 @@ import type {
   VisitorArrivalListMatch,
 } from '../VisitorStatisticsTypes'
 
-// TODO: needs Entity superclass
 class VisitorArrivalEntity extends VisitorStatisticsEntityBase<VisitorArrival> {
 
   constructor(client: VisitorStatisticsSDK, entopts: any) {

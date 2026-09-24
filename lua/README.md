@@ -43,7 +43,7 @@ local visitorarrivals, err = client:VisitorArrival():list()
 if err then error(err) end
 
 for _, item in ipairs(visitorarrivals) do
-  print(item["region"])
+  print(item)
 end
 ```
 

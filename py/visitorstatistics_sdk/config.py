@@ -116,27 +116,31 @@ def make_config():
         "fields": [
           {
             "name": "arrivals",
+            "title": "Arrivals",
+            "type": "`$INTEGER`",
             "req": True,
             "short": "Number of visitor arrivals",
-            "type": "`$INTEGER`",
           },
           {
-            "format": "float",
             "name": "change_percentage",
-            "short": "Percentage change compared to previous period",
+            "title": "Change Percentage",
             "type": "`$NUMBER`",
+            "short": "Percentage change compared to previous period",
+            "format": "float",
           },
           {
             "name": "region",
+            "title": "Region",
+            "type": "`$STRING`",
             "req": True,
             "short": "Nationality or region of residence",
-            "type": "`$STRING`",
           },
           {
             "name": "year_month",
+            "title": "Year Month",
+            "type": "`$STRING`",
             "req": True,
             "short": "Year and month of the record in YYYY-MM format",
-            "type": "`$STRING`",
           },
         ],
         "name": "visitor_arrival",
@@ -146,45 +150,6 @@ def make_config():
             "name": "list",
             "points": [
               {
-                "args": {
-                  "query": [
-                    {
-                      "example": "2023-12",
-                      "kind": "query",
-                      "name": "end_date",
-                      "orig": "end_date",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "json",
-                      "kind": "query",
-                      "name": "format",
-                      "orig": "format",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "en",
-                      "kind": "query",
-                      "name": "language",
-                      "orig": "language",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "Mainland China",
-                      "kind": "query",
-                      "name": "region",
-                      "orig": "region",
-                      "type": "`$STRING`",
-                    },
-                    {
-                      "example": "2023-01",
-                      "kind": "query",
-                      "name": "start_date",
-                      "orig": "start_date",
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/visitor-arrivals",
@@ -193,6 +158,53 @@ def make_config():
                     "lit": "visitor-arrivals",
                   },
                 ],
+                "parts": [
+                  "visitor-arrivals",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "query": [
+                    {
+                      "name": "end_date",
+                      "orig": "end_date",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "2023-12",
+                    },
+                    {
+                      "name": "format",
+                      "orig": "format",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "json",
+                    },
+                    {
+                      "name": "language",
+                      "orig": "language",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "en",
+                    },
+                    {
+                      "name": "region",
+                      "orig": "region",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "Mainland China",
+                    },
+                    {
+                      "name": "start_date",
+                      "orig": "start_date",
+                      "type": "`$STRING`",
+                      "kind": "query",
+                      "example": "2023-01",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "end_date",
@@ -202,13 +214,6 @@ def make_config():
                     "start_date",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "visitor-arrivals",
-                ],
               },
             ],
           },

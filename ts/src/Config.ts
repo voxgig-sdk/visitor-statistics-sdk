@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,27 +132,31 @@ class Config {
       "fields": [
         {
           "name": "arrivals",
+          "title": "Arrivals",
+          "type": "`$INTEGER`",
           "req": true,
-          "short": "Number of visitor arrivals",
-          "type": "`$INTEGER`"
+          "short": "Number of visitor arrivals"
         },
         {
-          "format": "float",
           "name": "change_percentage",
+          "title": "Change Percentage",
+          "type": "`$NUMBER`",
           "short": "Percentage change compared to previous period",
-          "type": "`$NUMBER`"
+          "format": "float"
         },
         {
           "name": "region",
+          "title": "Region",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Nationality or region of residence",
-          "type": "`$STRING`"
+          "short": "Nationality or region of residence"
         },
         {
           "name": "year_month",
+          "title": "Year Month",
+          "type": "`$STRING`",
           "req": true,
-          "short": "Year and month of the record in YYYY-MM format",
-          "type": "`$STRING`"
+          "short": "Year and month of the record in YYYY-MM format"
         }
       ],
       "name": "visitor_arrival",
@@ -169,45 +166,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": "2023-12",
-                    "kind": "query",
-                    "name": "end_date",
-                    "orig": "end_date",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "json",
-                    "kind": "query",
-                    "name": "format",
-                    "orig": "format",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "en",
-                    "kind": "query",
-                    "name": "language",
-                    "orig": "language",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "Mainland China",
-                    "kind": "query",
-                    "name": "region",
-                    "orig": "region",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "2023-01",
-                    "kind": "query",
-                    "name": "start_date",
-                    "orig": "start_date",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/visitor-arrivals",
@@ -216,6 +174,53 @@ class Config {
                   "lit": "visitor-arrivals"
                 }
               ],
+              "parts": [
+                "visitor-arrivals"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "end_date",
+                    "orig": "end_date",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "2023-12"
+                  },
+                  {
+                    "name": "format",
+                    "orig": "format",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "json"
+                  },
+                  {
+                    "name": "language",
+                    "orig": "language",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "en"
+                  },
+                  {
+                    "name": "region",
+                    "orig": "region",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "Mainland China"
+                  },
+                  {
+                    "name": "start_date",
+                    "orig": "start_date",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "2023-01"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "end_date",
@@ -224,14 +229,7 @@ class Config {
                   "region",
                   "start_date"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body`"
-              },
-              "parts": [
-                "visitor-arrivals"
-              ]
+              }
             }
           ]
         }

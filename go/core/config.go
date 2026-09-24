@@ -91,27 +91,31 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "arrivals",
+						"title": "Arrivals",
+						"type": "`$INTEGER`",
 						"req": true,
 						"short": "Number of visitor arrivals",
-						"type": "`$INTEGER`",
 					},
 					map[string]any{
-						"format": "float",
 						"name": "change_percentage",
-						"short": "Percentage change compared to previous period",
+						"title": "Change Percentage",
 						"type": "`$NUMBER`",
+						"short": "Percentage change compared to previous period",
+						"format": "float",
 					},
 					map[string]any{
 						"name": "region",
+						"title": "Region",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Nationality or region of residence",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "year_month",
+						"title": "Year Month",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Year and month of the record in YYYY-MM format",
-						"type": "`$STRING`",
 					},
 				},
 				"name": "visitor_arrival",
@@ -121,51 +125,59 @@ func MakeConfig() map[string]any {
 						"name": "list",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"query": []any{
-										map[string]any{
-											"example": "2023-12",
-											"kind": "query",
-											"name": "end_date",
-											"orig": "end_date",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "json",
-											"kind": "query",
-											"name": "format",
-											"orig": "format",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "en",
-											"kind": "query",
-											"name": "language",
-											"orig": "language",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "Mainland China",
-											"kind": "query",
-											"name": "region",
-											"orig": "region",
-											"type": "`$STRING`",
-										},
-										map[string]any{
-											"example": "2023-01",
-											"kind": "query",
-											"name": "start_date",
-											"orig": "start_date",
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/visitor-arrivals",
 								"segments": []any{
 									map[string]any{
 										"lit": "visitor-arrivals",
+									},
+								},
+								"parts": []any{
+									"visitor-arrivals",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"query": []any{
+										map[string]any{
+											"name": "end_date",
+											"orig": "end_date",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "2023-12",
+										},
+										map[string]any{
+											"name": "format",
+											"orig": "format",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "json",
+										},
+										map[string]any{
+											"name": "language",
+											"orig": "language",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "en",
+										},
+										map[string]any{
+											"name": "region",
+											"orig": "region",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "Mainland China",
+										},
+										map[string]any{
+											"name": "start_date",
+											"orig": "start_date",
+											"type": "`$STRING`",
+											"kind": "query",
+											"example": "2023-01",
+										},
 									},
 								},
 								"select": map[string]any{
@@ -176,13 +188,6 @@ func MakeConfig() map[string]any {
 										"region",
 										"start_date",
 									},
-								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"visitor-arrivals",
 								},
 							},
 						},

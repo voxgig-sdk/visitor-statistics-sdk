@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.VisitorArrivalEntity = void 0;
 const VisitorStatisticsEntityBase_1 = require("../VisitorStatisticsEntityBase");
-// TODO: needs Entity superclass
 class VisitorArrivalEntity extends VisitorStatisticsEntityBase_1.VisitorStatisticsEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

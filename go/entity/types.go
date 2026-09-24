@@ -1,7 +1,7 @@
 // Typed models for the VisitorStatistics SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,10 +14,6 @@ import (
 
 // VisitorArrival is the typed data model for the visitor_arrival entity.
 type VisitorArrival struct {
-	Arrivals int `json:"arrivals"`
-	ChangePercentage *float64 `json:"change_percentage,omitempty"`
-	Region string `json:"region"`
-	YearMonth string `json:"year_month"`
 }
 
 // VisitorArrivalListMatch is the typed request payload for VisitorArrival.ListTyped.
