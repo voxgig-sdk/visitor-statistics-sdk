@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 VisitorStatisticsUtility.registrar = ->(u) {
   u.clean = VisitorStatisticsUtilities::Clean
+  u.clean_add = VisitorStatisticsUtilities::CleanAdd
+  u.clean_explain = VisitorStatisticsUtilities::CleanExplain
   u.done = VisitorStatisticsUtilities::Done
   u.make_error = VisitorStatisticsUtilities::MakeError
   u.feature_add = VisitorStatisticsUtilities::FeatureAdd

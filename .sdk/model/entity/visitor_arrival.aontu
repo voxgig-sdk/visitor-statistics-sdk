@@ -109,7 +109,7 @@ main: kit: entity: visitor_arrival: {
           ]
           t: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.data`"
           }
         }
       ]

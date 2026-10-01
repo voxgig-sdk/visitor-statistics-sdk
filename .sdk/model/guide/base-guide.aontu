@@ -11,6 +11,7 @@ guide: {
   entity: visitor_arrival: {
     path: "/visitor-arrivals": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 

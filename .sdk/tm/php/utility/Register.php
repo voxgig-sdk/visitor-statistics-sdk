@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 VisitorStatisticsUtility::setRegistrar(function (VisitorStatisticsUtility $u): void {
     $u->clean = [VisitorStatisticsClean::class, 'call'];
+    $u->clean_add = [VisitorStatisticsClean::class, 'add'];
+    $u->clean_explain = [VisitorStatisticsDone::class, 'clean_explain'];
     $u->done = [VisitorStatisticsDone::class, 'call'];
     $u->make_error = [VisitorStatisticsMakeError::class, 'call'];
     $u->feature_add = [VisitorStatisticsFeatureAdd::class, 'call'];
