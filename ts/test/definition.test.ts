@@ -17,18 +17,46 @@ const PLAN: any[] = [
     "args": [],
     "select": {
       "end_date": "2023-12",
-      "format": "v1",
-      "language": "v1",
+      "format": "json",
+      "language": "en",
       "region": "Mainland China",
       "start_date": "2023-01"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json",
+      "text/csv",
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+    ],
     "query": [
       "format",
       "language",
       "start_date",
       "end_date",
       "region"
+    ],
+    "queryArgs": [
+      {
+        "name": "end_date",
+        "wire": "end_date"
+      },
+      {
+        "name": "format",
+        "wire": "format"
+      },
+      {
+        "name": "language",
+        "wire": "language"
+      },
+      {
+        "name": "region",
+        "wire": "region"
+      },
+      {
+        "name": "start_date",
+        "wire": "start_date"
+      }
     ],
     "auth": null,
     "status": 200,

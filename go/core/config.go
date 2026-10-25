@@ -71,6 +71,7 @@ func MakeConfig() map[string]any {
 				},
 				"optspec": map[string]any{
 					"clearTimer": "`$FUNCTION`",
+					"now": "`$FUNCTION`",
 					"setTimer": "`$FUNCTION`",
 				},
 				"strict": false,
@@ -170,6 +171,7 @@ func MakeConfig() map[string]any {
 											"type": "`$STRING`",
 											"kind": "query",
 											"example": "Mainland China",
+											"field": true,
 										},
 										map[string]any{
 											"name": "start_date",
@@ -180,14 +182,22 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
-								"select": map[string]any{
-									"exist": []any{
-										"end_date",
-										"format",
-										"language",
-										"region",
-										"start_date",
+								"select": map[string]any{},
+								"response": map[string]any{
+									"alternatives": []any{
+										map[string]any{
+											"binary": true,
+											"kind": "raw",
+											"media": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+										},
+										map[string]any{
+											"binary": true,
+											"kind": "raw",
+											"media": "text/csv",
+										},
 									},
+									"kind": "json",
+									"media": "application/json",
 								},
 							},
 						},

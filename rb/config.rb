@@ -79,6 +79,7 @@ module VisitorStatisticsConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -178,6 +179,7 @@ module VisitorStatisticsConfig
                         "type" => "`$STRING`",
                         "kind" => "query",
                         "example" => "Mainland China",
+                        "field" => true,
                       },
                       {
                         "name" => "start_date",
@@ -188,14 +190,22 @@ module VisitorStatisticsConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "end_date",
-                      "format",
-                      "language",
-                      "region",
-                      "start_date",
+                  "select" => {},
+                  "response" => {
+                    "alternatives" => [
+                      {
+                        "binary" => true,
+                        "kind" => "raw",
+                        "media" => "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                      },
+                      {
+                        "binary" => true,
+                        "kind" => "raw",
+                        "media" => "text/csv",
+                      },
                     ],
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],

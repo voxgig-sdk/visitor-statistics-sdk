@@ -67,6 +67,7 @@ local function make_config()
         },
         ["optspec"] = {
           ["clearTimer"] = "`$FUNCTION`",
+          ["now"] = "`$FUNCTION`",
           ["setTimer"] = "`$FUNCTION`",
         },
         ["strict"] = false,
@@ -166,6 +167,7 @@ local function make_config()
                       ["type"] = "`$STRING`",
                       ["kind"] = "query",
                       ["example"] = "Mainland China",
+                      ["field"] = true,
                     },
                     {
                       ["name"] = "start_date",
@@ -176,14 +178,22 @@ local function make_config()
                     },
                   },
                 },
-                ["select"] = {
-                  ["exist"] = {
-                    "end_date",
-                    "format",
-                    "language",
-                    "region",
-                    "start_date",
+                ["select"] = {},
+                ["response"] = {
+                  ["alternatives"] = {
+                    {
+                      ["binary"] = true,
+                      ["kind"] = "raw",
+                      ["media"] = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    },
+                    {
+                      ["binary"] = true,
+                      ["kind"] = "raw",
+                      ["media"] = "text/csv",
+                    },
                   },
+                  ["kind"] = "json",
+                  ["media"] = "application/json",
                 },
               },
             },

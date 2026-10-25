@@ -93,14 +93,21 @@ main: kit: entity: visitor_arrival: {
           }
           m: "GET"
           o: "/visitor-arrivals"
-          q: {
-            exist: [
-              "end_date"
-              "format"
-              "language"
-              "region"
-              "start_date"
+          rs: {
+            alternatives: [
+              {
+                binary: true
+                kind: "raw"
+                media: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+              }
+              {
+                binary: true
+                kind: "raw"
+                media: "text/csv"
+              }
             ]
+            kind: "json"
+            media: "application/json"
           }
           s: [
             {

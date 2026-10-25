@@ -96,6 +96,7 @@ def make_config():
         },
         "optspec": {
           "clearTimer": "`$FUNCTION`",
+          "now": "`$FUNCTION`",
           "setTimer": "`$FUNCTION`",
         },
         "strict": False,
@@ -195,6 +196,7 @@ def make_config():
                       "type": "`$STRING`",
                       "kind": "query",
                       "example": "Mainland China",
+                      "field": True,
                     },
                     {
                       "name": "start_date",
@@ -205,14 +207,22 @@ def make_config():
                     },
                   ],
                 },
-                "select": {
-                  "exist": [
-                    "end_date",
-                    "format",
-                    "language",
-                    "region",
-                    "start_date",
+                "select": {},
+                "response": {
+                  "alternatives": [
+                    {
+                      "binary": True,
+                      "kind": "raw",
+                      "media": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+                    },
+                    {
+                      "binary": True,
+                      "kind": "raw",
+                      "media": "text/csv",
+                    },
                   ],
+                  "kind": "json",
+                  "media": "application/json",
                 },
               },
             ],

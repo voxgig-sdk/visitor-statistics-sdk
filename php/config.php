@@ -93,6 +93,7 @@ class VisitorStatisticsConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -192,6 +193,7 @@ class VisitorStatisticsConfig
                         'type' => '`$STRING`',
                         'kind' => 'query',
                         'example' => 'Mainland China',
+                        'field' => true,
                       ],
                       [
                         'name' => 'start_date',
@@ -202,14 +204,22 @@ class VisitorStatisticsConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'end_date',
-                      'format',
-                      'language',
-                      'region',
-                      'start_date',
+                  'select' => [],
+                  'response' => [
+                    'alternatives' => [
+                      [
+                        'binary' => true,
+                        'kind' => 'raw',
+                        'media' => 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                      ],
+                      [
+                        'binary' => true,
+                        'kind' => 'raw',
+                        'media' => 'text/csv',
+                      ],
                     ],
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],
